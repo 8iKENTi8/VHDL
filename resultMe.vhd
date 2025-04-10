@@ -1,0 +1,578 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+-- Operations 5 and 7 
+-- Bitwise and 
+
+entity AndX4 is 
+    port (
+        A0: in bit; 
+        A1: in bit; 
+        A2: in bit; 
+        A3: in bit; 
+        B0: in bit; 
+        B1: in bit; 
+        B2: in bit; 
+        B3: in bit; 
+        F: out bit_vector(3 downto 0)
+    );
+end AndX4;
+
+architecture AndX4_Arch of AndX4 is 
+begin 
+    process (A0, A1, A2, A3, B0, B1, B2, B3) 
+    begin 
+        F(0) <= A0 and B0;
+        F(1) <= A1 and B1;
+        F(2) <= A2 and B2;
+        F(3) <= A3 and B3;
+    end process; 
+end AndX4_Arch; 
+
+-- Operation 2
+-- BSD 5311 Translation
+
+entity BCD5311 is 
+    port (
+        D0: in bit;
+        D1: in bit;
+        D2: in bit;
+        D3: in bit;
+        F: out bit_vector(3 downto 0)
+    );
+end BCD5311;
+
+architecture BCD5311_Arch of BCD5311 is 
+begin
+    process (D0, D1, D2, D3)
+        variable d: bit_vector(3 downto 0);
+    begin 
+        d := D3 & D2 & D1 & D0; 
+        case d is
+            when "0000" => F <= "0000"; 
+            when "0001" => F <= "0001"; 
+            when "0010" => F <= "0011"; 
+            when "0011" => F <= "0100"; 
+            when "0100" => F <= "0101"; 
+            when "0101" => F <= "0111"; 
+            when "0110" => F <= "1001"; 
+            when "0111" => F <= "1011"; 
+            when "1000" => F <= "1100"; 
+            when "1001" => F <= "1101"; 
+            when others => F <= "0000";
+        end case;
+    end process;
+end BCD5311_Arch;
+
+-- Operation 3 summator
+-- Adds 2 bits, returns and integer
+
+entity BitsSummator is 
+	port (
+    	A: in bit;
+        B: in bit;
+        F: out integer range 0 to 12
+    );
+end BitsSummator;
+
+architecture BitsSummator_Arch of BitsSummator is 
+begin 
+    process (A, B) 
+        variable d: bit_vector(1 downto 0);
+    begin
+        d := A & B; 
+        case d is 
+            when "00" => F <= 0;
+            when "01" => F <= 1;
+            when "10" => F <= 1;
+            when "11" => F <= 2;
+        end case;
+    end process;
+end BitsSummator_Arch; 
+
+-- Multiplexer for 5, 7, 2 operations 
+
+entity BitVectorMUX is 
+    port (
+        D0: in bit_vector(3 downto 0);
+        D1: in bit_vector(3 downto 0);
+        Y0: in bit;
+        Y1: in bit;
+        Y2: in bit;
+        F: out bit_vector(3 downto 0)
+    );
+end BitVectorMUX;
+
+architecture BitVectorMUX_Arch of BitVectorMUX is
+begin 
+    process (D0, D1, Y0, Y1, Y2)
+        variable op: bit_vector(2 downto 0);
+    begin 
+        op := Y2 & Y1 & Y0;
+        case op is 
+            -- Operation 2 
+            when "000" => F <= D1;
+            -- Operation 5, 7
+            when "011" | "101" => F <= D0;
+            when others => F <= "0000";
+        end case; 
+    end process;
+end BitVectorMUX_Arch;
+
+-- Operation 6 "10" counter
+-- Counts "10" in input bits string and returns an integer
+
+entity Counter10 is 
+    port (
+        D0: in bit;
+        D1: in bit;
+        D2: in bit;
+        D3: in bit;
+        F: out integer range 0 to 12
+    );
+end Counter10;
+
+architecture Counter10_Arch of Counter10 is 
+    function Count(vector: bit_vector(3 downto 0)) return integer is
+        variable res: integer range 0 to 12; 
+    begin
+        res := 0;
+        for i in vector'length - 1 downto 1 loop 
+            if vector(i) = '1' and vector(i - 1) = '0' then 
+                res := res + 1;
+            end if; 
+        end loop;
+        return res;
+    end;
+begin 
+    F <= Count(D0 & D1 & D2 & D3);
+end Counter10_Arch;
+
+-- Functions: 
+-- - CLR EN Y0 Y1 Y2 
+-- -   1  X  X  X  X Async state clear - operation 1 
+-- -   0  1  0  0  0 Write state from D - operation 2 
+-- -   0  1  0  0  1 Logic right shift by SM positions - operation 3 
+-- -   0  1  0  1  0 Arithmetic right shift in reverse code - operation 4 
+-- -   0  1  0  1  1 Masking state by value from D - operation 5 
+-- -   0  1  1  0  1 Bitwise "or" of register's state with D - operation 7
+-- -   0  1  1  0  0 \
+-- -   0  1  1  1  X Load integer value from SM into state - operation 6, 8
+
+entity CustomRegister is 
+    port (
+        SM: in integer range 0 to 12; 
+        D: in bit_vector(3 downto 0);
+        SI0: in bit; 
+        SI1: in bit;
+        Y0: in bit; 
+        Y1: in bit; 
+        Y2: in bit; 
+        EN: in bit; 
+        CLK: in bit; 
+        CLR: in bit; 
+        Q: buffer bit_vector(3 downto 0)
+    );
+end CustomRegister;
+
+architecture CustomRegister_Arch of CustomRegister is 
+
+    -- function ToString(vector: bit_vector) return string is 
+    --     variable str: string(1 to vector'length);
+    -- begin
+    --     for i in vector'range loop  
+    --         if vector(i) = '1' then 
+    --             str(abs(vector'left - i) + 1) := '1';
+    --         else 
+    --             str(abs(vector'left - i) + 1) := '0';
+    --         end if;
+    --     end loop;
+    --     return str;
+    -- end;
+
+    function ToBitVector(x: integer; size: integer) return bit_vector is 
+        variable high: integer;
+        variable result: bit_vector(size - 1 downto 0);
+        variable temp: integer;
+    begin 
+        high := size - 1;
+        result := (others => '0');
+        temp := x;
+        for i in high downto 0 loop
+            if temp mod 2 = 1 then
+                result(high - i) := '1';
+            end if;
+            temp := temp / 2;
+        end loop;
+        return result;
+    end;
+
+begin 
+    process (CLK, CLR, EN)
+        variable op: bit_vector(2 downto 0);
+        variable shift: bit_vector(3 downto 0);
+    begin
+        -- assert false report 
+        --     "clk: " & bit'image(CLK) &
+        --     " clr: " & bit'image(CLR) &
+        --     " en: " & bit'image(EN) & 
+        --     " sm: " & integer'image(SM) & 
+        --     " D: " & ToString(D) & 
+        --     " Y: " & ToString(Y2 & Y1 & Y0) &
+        --     " Q: " & ToString(Q)
+        --     severity note;
+
+        if CLR = '1' then 
+            -- assert false report "Clearing" severity note;
+            -- Operation 1 
+            Q <= "0000";
+        elsif EN = '0' then 
+            -- assert false report "Nothing" severity note;
+            null; 
+        elsif CLK'event and CLK = '1' then 
+            op := Y2 & Y1 & Y0;
+            case op is
+                -- Operation 2 
+                when "000" => Q <= D; 
+                -- Operation 3 
+                when "001" => 
+                    shift := Q;
+                    if SM = 1 then 
+                        shift(0) := shift(1); 
+                        shift(1) := shift(2); 
+                        shift(2) := shift(3); 
+                        shift(3) := SI0;
+                    elsif SM = 2 then
+                        shift(0) := shift(2); 
+                        shift(1) := shift(3); 
+                        shift(2) := SI1;
+                        shift(3) := SI0;
+                    end if;
+                    Q <= shift;
+                -- Operation 4
+                when "010" =>
+                    Q(0) <= Q(1); 
+                    Q(1) <= Q(2); 
+                    Q(2) <= Q(3);
+                -- Operation 5
+                when "011" => Q <= Q and D;
+                -- Operation 7 
+                when "101" => Q <= Q or D;
+                -- Operations 6 and 8
+                when "100" | "110" | "111" => Q <= ToBitVector(SM, 4);
+            end case; 
+        end if;
+    end process;
+end CustomRegister_Arch;
+
+-- Operation 8 custom summator 
+-- Adds: 
+-- From x channel: 
+-- - 0s count in x1 and x2 
+-- - doubled count of 0s in x0
+-- From z channel:
+-- - doubled count of 0s in first right group of digits 
+
+entity CustomSummator is 
+    port (
+        X0: in bit; 
+        X1: in bit; 
+        X2: in bit; 
+        Z0: in bit; 
+        Z1: in bit; 
+        Z2: in bit; 
+        Z3: in bit; 
+        F: out integer range 0 to 12
+    );
+end CustomSummator;
+
+architecture CustomSummator_Arch of CustomSummator is
+
+    function RightGroupZerosCount(vector: bit_vector(3 downto 0)) return integer is 
+        variable count: integer range 0 to 4;
+    begin 
+        count := 0;
+        for i in vector'reverse_range loop
+            if vector(i) = '1' then 
+                return count;
+            end if; 
+            count := count + 1; 
+        end loop;
+        return count;
+    end;
+
+begin 
+    process (X0, X1, X2, Z0, Z1, Z2, Z3)
+        variable d: bit_vector(1 downto 0);
+        variable x1x2Zeros: integer range 0 to 2; 
+        variable x0DoubledZeros: integer range 0 to 2; 
+        variable zDoubledZeros: integer range 0 to 8;
+    begin
+        
+        x0DoubledZeros := 0;
+        
+        -- x1 x2 zeros count 
+        d := X1 & X2; 
+        case d is 
+            when "00" => x1x2Zeros := 2;
+            when "01" => x1x2Zeros := 1;
+            when "10" => x1x2Zeros := 1;
+            when "11" => x1x2Zeros := 0;
+        end case;
+
+        -- Doubled x0 zeros count
+        if X0 = '0' then
+            x0DoubledZeros := 2;
+        else 
+            x0DoubledZeros := 0;
+        end if;
+
+        -- Doubled right zeros group count of z
+        zDoubledZeros := RightGroupZerosCount(Z3 & Z2 & Z1 & Z0) * 2;
+
+        F <= x1x2Zeros + x0DoubledZeros + zDoubledZeros; 
+        
+    end process; 
+end CustomSummator_Arch;
+
+-- Multiplexer for 3, 6, 8 operations
+
+entity IntMUX is 
+    port (
+        D0: in integer range 0 to 12; 
+        D1: in integer range 0 to 12; 
+        D2: in integer range 0 to 12; 
+        Y0: in bit;
+        Y1: in bit;
+        Y2: in bit;
+        F: out integer range 0 to 12
+    );
+end IntMUX;
+
+architecture IntMUX_Arch of IntMUX is 
+begin 
+    process (D0, D1, D2, Y0, Y1, Y2)
+        variable op: bit_vector(2 downto 0);
+    begin
+        op := Y2 & Y1 & Y0;
+        case op is 
+            -- Operation 3
+            when "001" => F <= D0;
+            -- Operation 6
+            when "100" => F <= D1; 
+            -- Operation 8
+            when "110" | "111" => F <= D2;
+            when others => F <= 0;
+        end case;
+    end process;
+end IntMUX_Arch;
+
+entity Result is 
+    port (
+        X0: in bit; 
+        X1: in bit; 
+        X2: in bit; 
+        X3: in bit; 
+        Z0: in bit; 
+        Z1: in bit; 
+        Z2: in bit; 
+        Z3: in bit; 
+        SI0: in bit;
+        SI1: in bit;
+        Y0: in bit; 
+        Y1: in bit; 
+        Y2: in bit; 
+        EN: in bit; 
+        CLK: in bit; 
+        CLR: in bit; 
+        Q: buffer bit_vector(3 downto 0)
+    );
+end Result;
+
+architecture Result_Arch of Result is 
+        
+    component BitsSummator is 
+        port (
+            A: in bit;
+            B: in bit;
+            F: out integer range 0 to 12
+        );
+    end component;
+
+    component Counter10 is 
+        port (
+            D0: in bit;
+            D1: in bit;
+            D2: in bit;
+            D3: in bit;
+            F: out integer range 0 to 12
+        );
+    end component;
+
+    component CustomSummator is 
+        port (
+            X0: in bit; 
+            X1: in bit; 
+            X2: in bit; 
+            Z0: in bit; 
+            Z1: in bit; 
+            Z2: in bit; 
+            Z3: in bit; 
+            F: out integer range 0 to 12
+        );
+    end component;
+
+    component AndX4 is 
+        port (
+            A0: in bit; 
+            A1: in bit; 
+            A2: in bit; 
+            A3: in bit; 
+            B0: in bit; 
+            B1: in bit; 
+            B2: in bit; 
+            B3: in bit; 
+            F: out bit_vector(3 downto 0)
+        );
+    end component;
+
+    component BCD5311 is 
+        port (
+            D0: in bit;
+            D1: in bit;
+            D2: in bit;
+            D3: in bit;
+            F: out bit_vector(3 downto 0)
+        );
+    end component;
+
+    component BitVectorMUX is 
+        port (
+            D0: in bit_vector(3 downto 0);
+            D1: in bit_vector(3 downto 0);
+            Y0: in bit;
+            Y1: in bit;
+            Y2: in bit;
+            F: out bit_vector(3 downto 0)
+        );
+    end component;
+
+    component IntMUX is 
+        port (
+            D0: in integer range 0 to 12; 
+            D1: in integer range 0 to 12; 
+            D2: in integer range 0 to 12; 
+            Y0: in bit;
+            Y1: in bit;
+            Y2: in bit;
+            F: out integer range 0 to 12
+        );
+    end component;
+
+    component CustomRegister is 
+        port (
+            SM: in integer range 0 to 12; 
+            D: in bit_vector(3 downto 0);
+            SI0: in bit; 
+            SI1: in bit;
+            Y0: in bit; 
+            Y1: in bit; 
+            Y2: in bit; 
+            EN: in bit; 
+            CLK: in bit; 
+            CLR: in bit; 
+            Q: buffer bit_vector(3 downto 0)
+        );
+    end component;
+
+    signal op3MUX: integer range 0 to 12;
+    signal op6MUX: integer range 0 to 12;
+    signal op8MUX: integer range 0 to 12;
+
+    signal op57MUX: bit_vector(3 downto 0);
+    signal op2MUX: bit_vector(3 downto 0);
+
+    signal intMUXReg: integer range 0 to 12; 
+    signal bitVectorMUXReg: bit_vector(3 downto 0);
+
+begin 
+
+    op3Summator: BitsSummator port map (
+        A => X1,
+        B => Z0,
+        F => op3MUX
+    );
+
+    op6Counter: Counter10 port map (
+        D0 => Z0,
+        D1 => Z2,
+        D2 => X0,
+        D3 => X2,
+        F => op6MUX
+    );
+
+    op8Summator: CustomSummator port map (
+        X0 => X0, 
+        X1 => X1, 
+        X2 => X2, 
+        Z0 => Z0, 
+        Z1 => Z1, 
+        Z2 => Z2,
+        Z3 => Z3,
+        F => op8MUX
+    );
+
+    op57And: AndX4 port map (
+        A0 => X0,
+        A1 => X1,
+        A2 => X2,
+        A3 => X3,
+        B0 => Z0,
+        B1 => Z1,
+        B2 => Z2,
+        B3 => Z3,
+        F => op57MUX
+    );
+
+    op2BCD: BCD5311 port map (
+        D0 => X0,
+        D1 => X1,
+        D2 => X2,
+        D3 => X3,
+        F => op2MUX
+    ); 
+
+    op368MUX: IntMUX port map (
+        D0 => op3MUX,
+        D1 => op6MUX,
+        D2 => op8MUX,
+        Y0 => Y0,
+        Y1 => Y1,
+        Y2 => Y2,
+        F => intMUXReg 
+    );
+
+    op257MUX: BitVectorMUX port map (
+        D0 => op57MUX,
+        D1 => op2MUX, 
+        Y0 => Y0,
+        Y1 => Y1,
+        Y2 => Y2,
+        F => bitVectorMUXReg
+    );
+
+    reg: CustomRegister port map (
+        SM => intMUXReg, 
+        D => bitVectorMUXReg,
+        SI0 => SI0,
+        SI1 => SI1,
+        Y0 => Y0,
+        Y1 => Y1,
+        Y2 => Y2,
+        EN => EN,
+        CLK => CLK,
+        CLR => CLR, 
+        Q => Q
+    ); 
+
+end Result_Arch;
