@@ -30,9 +30,9 @@ begin
 end AndX4_Arch; 
 
 -- Operation 2
--- BSD 5311 Translation
+-- BCD 2431 Translation
 
-entity BCD5311 is 
+entity BCD2431 is 
     port (
         D0: in bit;
         D1: in bit;
@@ -40,29 +40,29 @@ entity BCD5311 is
         D3: in bit;
         F: out bit_vector(3 downto 0)
     );
-end BCD5311;
+end BCD2431;
 
-architecture BCD5311_Arch of BCD5311 is 
+architecture BCD2431_Arch of BCD2431 is 
 begin
     process (D0, D1, D2, D3)
         variable d: bit_vector(3 downto 0);
     begin 
         d := D3 & D2 & D1 & D0; 
         case d is
-            when "0000" => F <= "0000"; 
-            when "0001" => F <= "0001"; 
-            when "0010" => F <= "0011"; 
-            when "0011" => F <= "0100"; 
-            when "0100" => F <= "0101"; 
-            when "0101" => F <= "0111"; 
-            when "0110" => F <= "1001"; 
-            when "0111" => F <= "1011"; 
-            when "1000" => F <= "1100"; 
-            when "1001" => F <= "1101"; 
+            when "0000" => F <= "0000";  -- 0
+            when "0001" => F <= "0001";  -- 1
+            when "0010" => F <= "1000";  -- 2
+            when "0011" => F <= "0010";  -- 3
+            when "0100" => F <= "0100";  -- 4
+            when "0101" => F <= "0101";  -- 5
+            when "0110" => F <= "1100";  -- 6
+            when "0111" => F <= "1101";  -- 7
+            when "1000" => F <= "0111";  -- 8
+            when "1001" => F <= "1110";  -- 9
             when others => F <= "0000";
         end case;
     end process;
-end BCD5311_Arch;
+end BCD2431_Arch;
 
 -- Operation 3 summator
 -- Adds 2 bits, returns and integer
