@@ -30,6 +30,26 @@ begin
     end process; 
 end OrX_AndZQ4_Arch;
 
+
+-- Operations 5
+
+entity Masking is
+    port (
+        X0, X1, X2, X3 : in bit; -- Канал X
+        Q : in bit_vector(3 downto 0);  -- Регистр Q
+        F : out bit_vector(3 downto 0)  -- Результат маскирования
+    );
+end Masking;
+
+architecture Behavioral of Masking is
+begin
+    process (X0, X1, X2, X3, Q)
+    begin
+        F <= Q and X;  -- Побитовая операция AND для маскирования
+    end process;
+end Behavioral;
+
+
 -- Operation 2
 -- BCD 2431 Translation
 
