@@ -326,33 +326,27 @@ architecture CustomSummator_Arch of CustomSummator is
 begin 
     process (X0, X1, X2, Z0, Z1, Z2, Z3)
         variable d: bit_vector(1 downto 0);
-        variable x1x2Zeros: integer range 0 to 2; 
-        variable x0DoubledZeros: integer range 0 to 2; 
+        variable x0x1x2Zeros: integer range 0 to 3; 
         variable zDoubledZeros: integer range 0 to 8;
     begin
         
-        x0DoubledZeros := 0;
-        
-        -- x1 x2 zeros count 
-        d := X1 & X2; 
-        case d is 
-            when "00" => x1x2Zeros := 2;
-            when "01" => x1x2Zeros := 1;
-            when "10" => x1x2Zeros := 1;
-            when "11" => x1x2Zeros := 0;
-        end case;
-
-        -- Doubled x0 zeros count
+  
+        x0x1x2Zeros := 0;
         if X0 = '0' then
-            x0DoubledZeros := 2;
-        else 
-            x0DoubledZeros := 0;
+            x0x1x2Zeros := x0x1x2Zeros + 1;
+        end if;
+        if X1 = '0' then
+            x0x1x2Zeros := x0x1x2Zeros + 1;
+        end if;
+        if X2 = '0' then
+            x0x1x2Zeros := x0x1x2Zeros + 1;
         end if;
 
-        -- Doubled right zeros group count of z
+     
         zDoubledZeros := RightGroupZerosCount(Z3 & Z2 & Z1 & Z0) * 2;
 
-        F <= x1x2Zeros + x0DoubledZeros + zDoubledZeros; 
+        -- Добавимм кростанту 1 
+        F <= x0x1x2Zeros + zDoubledZeros + 1; 
         
     end process; 
 end CustomSummator_Arch;
