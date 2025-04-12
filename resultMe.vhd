@@ -120,10 +120,10 @@ begin
     end process;
 end BitVectorMUX_Arch;
 
--- Operation 6 "10" counter
--- Counts "10" in input bits string and returns an integer
+-- Operation 6  "01" counter
+-- Counts "01" in input bits string and returns an integer
 
-entity Counter10 is 
+entity Counter01 is 
     port (
         D0: in bit;
         D1: in bit;
@@ -131,23 +131,24 @@ entity Counter10 is
         D3: in bit;
         F: out integer range 0 to 12
     );
-end Counter10;
+end Counter01;
 
-architecture Counter10_Arch of Counter10 is 
-    function Count(vector: bit_vector(3 downto 0)) return integer is
+architecture Counter01_Arch of Counter01 is
+    function Count01(vector: bit_vector(3 downto 0)) return integer is
         variable res: integer range 0 to 12; 
     begin
         res := 0;
         for i in vector'length - 1 downto 1 loop 
-            if vector(i) = '1' and vector(i - 1) = '0' then 
-                res := res + 1;
-            end if; 
-        end loop;
+        if vector(i) = '0' and vector(i - 1) = '1' then 
+            res := res + 1;
+        end if; 
+    end loop;    
         return res;
     end;
-begin 
+begin
+    -- Формируем вектор в нужном порядке: X0 Z0 X3 X1
     F <= Count(D0 & D1 & D2 & D3);
-end Counter10_Arch;
+end Counter01_Arch;
 
 -- Functions: 
 -- - CLR EN Y0 Y1 Y2 
