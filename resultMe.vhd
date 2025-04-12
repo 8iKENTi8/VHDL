@@ -1,33 +1,34 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
--- Operations 5 and 7 
--- Bitwise and 
+-- Operations 7 
+-- Bitwise  
 
-entity AndX4 is 
+entity OrX_AndZQ4 is 
     port (
-        A0: in bit; 
-        A1: in bit; 
-        A2: in bit; 
-        A3: in bit; 
-        B0: in bit; 
-        B1: in bit; 
-        B2: in bit; 
-        B3: in bit; 
-        F: out bit_vector(3 downto 0)
+        Q: in bit_vector(3 downto 0); -- содержимое регистра
+        A0: in bit;  -- X
+        A1: in bit;
+        A2: in bit;
+        A3: in bit;
+        B0: in bit;  -- Z
+        B1: in bit;
+        B2: in bit;
+        B3: in bit;
+        F: out bit_vector(3 downto 0) -- результат
     );
-end AndX4;
+end OrX_AndZQ4;
 
-architecture AndX4_Arch of AndX4 is 
+architecture OrX_AndZQ4_Arch of OrX_AndZQ4 is 
 begin 
-    process (A0, A1, A2, A3, B0, B1, B2, B3) 
+    process (A0, A1, A2, A3, B0, B1, B2, B3, Q) 
     begin 
-        F(0) <= A0 and B0;
-        F(1) <= A1 and B1;
-        F(2) <= A2 and B2;
-        F(3) <= A3 and B3;
+        F(0) <= A0 or (B0 and Q(0));
+        F(1) <= A1 or (B1 and Q(1));
+        F(2) <= A2 or (B2 and Q(2));
+        F(3) <= A3 or (B3 and Q(3));
     end process; 
-end AndX4_Arch; 
+end OrX_AndZQ4_Arch;
 
 -- Operation 2
 -- BCD 2431 Translation
