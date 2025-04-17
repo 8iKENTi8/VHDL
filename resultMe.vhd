@@ -1,53 +1,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
--- Operations 7 
--- Bitwise  
-
-entity OrX_AndZQ4 is 
-    port (
-        Q: in bit_vector(3 downto 0); -- содержимое регистра
-        A0: in bit;  -- X
-        A1: in bit;
-        A2: in bit;
-        A3: in bit;
-        B0: in bit;  -- Z
-        B1: in bit;
-        B2: in bit;
-        B3: in bit;
-        F: out bit_vector(3 downto 0) -- результат
-    );
-end OrX_AndZQ4;
-
-architecture OrX_AndZQ4_Arch of OrX_AndZQ4 is 
-begin 
-    process (A0, A1, A2, A3, B0, B1, B2, B3, Q) 
-    begin 
-        F(0) <= A0 or (B0 and Q(0));
-        F(1) <= A1 or (B1 and Q(1));
-        F(2) <= A2 or (B2 and Q(2));
-        F(3) <= A3 or (B3 and Q(3));
-    end process; 
-end OrX_AndZQ4_Arch;
-
--- Operations 5
-
-entity Masking is
-    port (
-        X0, X1, X2, X3 : in bit; -- Канал X
-        Q : in bit_vector(3 downto 0);  -- Регистр Q
-        F : out bit_vector(3 downto 0)  -- Результат маскирования
-    );
-end Masking;
-
-architecture Behavioral of Masking is
-begin
-    process (X0, X1, X2, X3, Q)
-    begin
-        F <= Q and X;  -- Побитовая операция AND для маскирования
-    end process;
-end Behavioral;
-
 -- Operation 2
 -- BCD 2431 Translation
 
@@ -82,6 +35,53 @@ begin
         end case;
     end process;
 end BCD2431_Arch;
+
+-- Operations 5
+
+entity Masking is
+    port (
+        X0, X1, X2, X3 : in bit; -- Канал X
+        Q : in bit_vector(3 downto 0);  -- Регистр Q
+        F : out bit_vector(3 downto 0)  -- Результат маскирования
+    );
+end Masking;
+
+architecture Behavioral of Masking is
+begin
+    process (X0, X1, X2, X3, Q)
+    begin
+        F <= Q and X;  -- Побитовая операция AND для маскирования
+    end process;
+end Behavioral;
+
+-- Operations 7 
+-- Bitwise  
+
+entity OrX_AndZQ4 is 
+    port (
+        Q: in bit_vector(3 downto 0); -- содержимое регистра
+        A0: in bit;  -- X
+        A1: in bit;
+        A2: in bit;
+        A3: in bit;
+        B0: in bit;  -- Z
+        B1: in bit;
+        B2: in bit;
+        B3: in bit;
+        F: out bit_vector(3 downto 0) -- результат
+    );
+end OrX_AndZQ4;
+
+architecture OrX_AndZQ4_Arch of OrX_AndZQ4 is 
+begin 
+    process (A0, A1, A2, A3, B0, B1, B2, B3, Q) 
+    begin 
+        F(0) <= A0 or (B0 and Q(0));
+        F(1) <= A1 or (B1 and Q(1));
+        F(2) <= A2 or (B2 and Q(2));
+        F(3) <= A3 or (B3 and Q(3));
+    end process; 
+end OrX_AndZQ4_Arch;
 
 -- Operation 3 summator
 -- Adds 2 bits, returns and integer
@@ -170,17 +170,6 @@ begin
     -- Формируем вектор в нужном порядке: X0 Z0 X3 X1
     F <= Count(D0 & D1 & D2 & D3);
 end Counter01_Arch;
-
--- Functions: 
--- - CLR EN Y0 Y1 Y2 
--- -   1  X  X  X  X Async state clear - operation 1 
--- -   0  1  0  0  0 Write state from D - operation 2 
--- -   0  1  0  0  1 Logic right shift by SM positions - operation 3 
--- -   0  1  0  1  0 Arithmetic right shift in reverse code - operation 4 
--- -   0  1  0  1  1 Masking state by value from D - operation 5 
--- -   0  1  1  0  1 Bitwise "or" of register's state with D - operation 7
--- -   0  1  1  0  0 \
--- -   0  1  1  1  X Load integer value from SM into state - operation 6, 8
 
 entity CustomRegister is 
     port (
@@ -289,12 +278,6 @@ begin
 end CustomRegister_Arch;
 
 -- Operation 8 custom summator 
--- Adds: 
--- From x channel: 
--- - 0s count in x1 and x2 
--- - doubled count of 0s in x0
--- From z channel:
--- - doubled count of 0s in first right group of digits 
 
 entity CustomSummator is 
     port (
@@ -416,7 +399,7 @@ architecture Result_Arch of Result is
         );
     end component;
 
-    component Counter10 is 
+    component Counter01 is 
         port (
             D0: in bit;
             D1: in bit;
@@ -439,21 +422,30 @@ architecture Result_Arch of Result is
         );
     end component;
 
-    component AndX4 is 
+    component Masking is
         port (
-            A0: in bit; 
-            A1: in bit; 
-            A2: in bit; 
-            A3: in bit; 
-            B0: in bit; 
-            B1: in bit; 
-            B2: in bit; 
-            B3: in bit; 
-            F: out bit_vector(3 downto 0)
+            X0, X1, X2, X3 : in bit; -- Канал X
+            Q : in bit_vector(3 downto 0);  -- Регистр Q
+            F : out bit_vector(3 downto 0)  -- Результат маскирования
+        );
+    end component;    
+
+    component OrX_AndZQ4 is 
+        port (
+            Q: in bit_vector(3 downto 0); -- содержимое регистра
+            A0: in bit;  -- X
+            A1: in bit;
+            A2: in bit;
+            A3: in bit;
+            B0: in bit;  -- Z
+            B1: in bit;
+            B2: in bit;
+            B3: in bit;
+            F: out bit_vector(3 downto 0) -- результат
         );
     end component;
 
-    component BCD5311 is 
+    component BCD2431 is 
         port (
             D0: in bit;
             D1: in bit;
@@ -467,6 +459,7 @@ architecture Result_Arch of Result is
         port (
             D0: in bit_vector(3 downto 0);
             D1: in bit_vector(3 downto 0);
+            D2: in bit_vector(3 downto 0);
             Y0: in bit;
             Y1: in bit;
             Y2: in bit;
@@ -508,6 +501,7 @@ architecture Result_Arch of Result is
 
     signal op57MUX: bit_vector(3 downto 0);
     signal op2MUX: bit_vector(3 downto 0);
+    signal op5MUX: bit_vector(3 downto 0);
 
     signal intMUXReg: integer range 0 to 12; 
     signal bitVectorMUXReg: bit_vector(3 downto 0);
@@ -520,11 +514,11 @@ begin
         F => op3MUX
     );
 
-    op6Counter: Counter10 port map (
-        D0 => Z0,
-        D1 => Z2,
-        D2 => X0,
-        D3 => X2,
+    op6Counter: Counter01 port map (
+        D0 => X0,
+        D1 => Z0,
+        D2 => X3,
+        D3 => X1,
         F => op6MUX
     );
 
@@ -539,7 +533,17 @@ begin
         F => op8MUX
     );
 
-    op57And: AndX4 port map (
+    op5Masking: Masking port map (
+    X0 => X0,
+    X1 => X1,
+    X2 => X2,
+    X3 => X3,
+    Q  => Q,
+    F  => op5MUX
+    );
+
+    op7OR_And: OrX_AndZQ4 port map (
+        Q => Q,
         A0 => X0,
         A1 => X1,
         A2 => X2,
@@ -551,7 +555,7 @@ begin
         F => op57MUX
     );
 
-    op2BCD: BCD5311 port map (
+    op2BCD: BCD2431 port map (
         D0 => X0,
         D1 => X1,
         D2 => X2,
