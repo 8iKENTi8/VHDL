@@ -30,7 +30,6 @@ begin
     end process; 
 end OrX_AndZQ4_Arch;
 
-
 -- Operations 5
 
 entity Masking is
@@ -48,7 +47,6 @@ begin
         F <= Q and X;  -- Побитовая операция AND для маскирования
     end process;
 end Behavioral;
-
 
 -- Operation 2
 -- BCD 2431 Translation
@@ -270,8 +268,8 @@ begin
                     elsif SM = 2 then
                         shift(0) := shift(2); 
                         shift(1) := shift(3); 
-                        shift(2) := SI1;
-                        shift(3) := SI0;
+                        shift(2) := SI0;
+                        shift(3) := SI1;
                     end if;
                     Q <= shift;
                 -- Operation 4
@@ -282,7 +280,7 @@ begin
                 -- Operation 5
                 when "011" => Q <= Q and D;
                 -- Operation 7 
-                when "101" => Q <= Q or D;
+                when "101" => Q <= D;
                 -- Operations 6 and 8
                 when "100" | "110" | "111" => Q <= ToBitVector(SM, 4);
             end case; 
