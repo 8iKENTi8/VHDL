@@ -53,19 +53,22 @@ entity Masking is
 end Masking;
 
 architecture Behavioral of Masking is
-begin
-    process (X0, X1, X2, X3, Q)
     begin
-        F <= Q and X;  -- Побитовая операция AND для маскирования
-    end process;
-end Behavioral;
+        process (X0, X1, X2, X3, Q)
+            variable X : bit_vector(3 downto 0);
+        begin
+            X := X3 & X2 & X1 & X0;
+            F <= Q and X;
+        end process;
+    end Behavioral;
+    
 
 -- Operations 7 
 -- Bitwise  
 
 entity OrX_AndZQ4 is 
     port (
-        Q: in bit_vector(3 downto 0); -- содержимое регистра
+        Q: in bit_vector(3 downto 0); -- register contents
         A0: in bit;  -- X
         A1: in bit;
         A2: in bit;
@@ -74,7 +77,7 @@ entity OrX_AndZQ4 is
         B1: in bit;
         B2: in bit;
         B3: in bit;
-        F: out bit_vector(3 downto 0) -- результат
+        F: out bit_vector(3 downto 0) -- result
     );
 end OrX_AndZQ4;
 
@@ -173,8 +176,8 @@ architecture Counter01_Arch of Counter01 is
         return res;
     end;
 begin
-    -- Формируем вектор в нужном порядке: X0 Z0 X3 X1
-    F <= Count(D0 & D1 & D2 & D3);
+    --  X0 Z0 X3 X1
+    F <= Count01(D0 & D1 & D2 & D3);
 end Counter01_Arch;
 
 entity CustomRegister is 
@@ -430,15 +433,15 @@ architecture Result_Arch of Result is
 
     component Masking is
         port (
-            X0, X1, X2, X3 : in bit; -- Канал X
-            Q : in bit_vector(3 downto 0);  -- Регистр Q
-            F : out bit_vector(3 downto 0)  -- Результат маскирования
+            X0, X1, X2, X3 : in bit; -- chanel X
+            Q : in bit_vector(3 downto 0);  -- Register Q
+            F : out bit_vector(3 downto 0)  -- result Mask
         );
     end component;    
 
     component OrX_AndZQ4 is 
         port (
-            Q: in bit_vector(3 downto 0); -- содержимое регистра
+            Q: in bit_vector(3 downto 0); -- сcontnet register
             A0: in bit;  -- X
             A1: in bit;
             A2: in bit;
@@ -447,7 +450,7 @@ architecture Result_Arch of Result is
             B1: in bit;
             B2: in bit;
             B3: in bit;
-            F: out bit_vector(3 downto 0) -- результат
+            F: out bit_vector(3 downto 0) -- result
         );
     end component;
 
