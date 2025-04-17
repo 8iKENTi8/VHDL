@@ -111,12 +111,13 @@ begin
     end process;
 end BitsSummator_Arch; 
 
--- Multiplexer for 5, 7, 2 operations 
+-- Multiplexer for 2, 5, 7 operations 
 
 entity BitVectorMUX is 
     port (
         D0: in bit_vector(3 downto 0);
         D1: in bit_vector(3 downto 0);
+        D2: in bit_vector(3 downto 0);
         Y0: in bit;
         Y1: in bit;
         Y2: in bit;
@@ -126,15 +127,17 @@ end BitVectorMUX;
 
 architecture BitVectorMUX_Arch of BitVectorMUX is
 begin 
-    process (D0, D1, Y0, Y1, Y2)
+    process (D0, D1, D2, Y0, Y1, Y2)
         variable op: bit_vector(2 downto 0);
     begin 
         op := Y2 & Y1 & Y0;
         case op is 
             -- Operation 2 
             when "000" => F <= D1;
-            -- Operation 5, 7
-            when "011" | "101" => F <= D0;
+            -- Operation 5 
+            when "011" => F <= D2;
+            -- Operation 7 
+            when "101" => F <= D0;
             when others => F <= "0000";
         end case; 
     end process;
