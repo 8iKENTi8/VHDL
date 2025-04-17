@@ -499,20 +499,37 @@ architecture Result_Arch of Result is
     signal op6MUX: integer range 0 to 12;
     signal op8MUX: integer range 0 to 12;
 
-    signal op57MUX: bit_vector(3 downto 0);
     signal op2MUX: bit_vector(3 downto 0);
     signal op5MUX: bit_vector(3 downto 0);
+    signal op7MUX: bit_vector(3 downto 0);
 
     signal intMUXReg: integer range 0 to 12; 
     signal bitVectorMUXReg: bit_vector(3 downto 0);
 
 begin 
 
+    op2BCD: BCD2431 port map (
+        D0 => X0,
+        D1 => X1,
+        D2 => X2,
+        D3 => X3,
+        F => op2MUX
+    ); 
+
     op3Summator: BitsSummator port map (
-        A => X1,
-        B => Z0,
+        A => X3,
+        B => Z3,
         F => op3MUX
     );
+
+    op5Masking: Masking port map (
+        X0 => X0,
+        X1 => X1,
+        X2 => X2,
+        X3 => X3,
+        Q  => Q,
+        F  => op5MUX
+        );
 
     op6Counter: Counter01 port map (
         D0 => X0,
@@ -520,6 +537,19 @@ begin
         D2 => X3,
         D3 => X1,
         F => op6MUX
+    );
+
+    op7OR_And: OrX_AndZQ4 port map (
+        Q => Q,
+        A0 => X0,
+        A1 => X1,
+        A2 => X2,
+        A3 => X3,
+        B0 => Z0,
+        B1 => Z1,
+        B2 => Z2,
+        B3 => Z3,
+        F => op7MUX
     );
 
     op8Summator: CustomSummator port map (
@@ -533,36 +563,6 @@ begin
         F => op8MUX
     );
 
-    op5Masking: Masking port map (
-    X0 => X0,
-    X1 => X1,
-    X2 => X2,
-    X3 => X3,
-    Q  => Q,
-    F  => op5MUX
-    );
-
-    op7OR_And: OrX_AndZQ4 port map (
-        Q => Q,
-        A0 => X0,
-        A1 => X1,
-        A2 => X2,
-        A3 => X3,
-        B0 => Z0,
-        B1 => Z1,
-        B2 => Z2,
-        B3 => Z3,
-        F => op57MUX
-    );
-
-    op2BCD: BCD2431 port map (
-        D0 => X0,
-        D1 => X1,
-        D2 => X2,
-        D3 => X3,
-        F => op2MUX
-    ); 
-
     op368MUX: IntMUX port map (
         D0 => op3MUX,
         D1 => op6MUX,
@@ -574,8 +574,9 @@ begin
     );
 
     op257MUX: BitVectorMUX port map (
-        D0 => op57MUX,
+        D0 => op7MUX,
         D1 => op2MUX, 
+        D2 => op5MUX, 
         Y0 => Y0,
         Y1 => Y1,
         Y2 => Y2,
