@@ -1,0 +1,47 @@
+Warning: Division with negative numbers is done with shifts 
+	in routine "/"
+	called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'
+	called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd' (HDL-93)
+Warning: Division with negative numbers is done with shifts 
+	in routine "/"
+	called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'
+	called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd' (HDL-93)
+Warning: Division with negative numbers is done with shifts 
+	in routine "/"
+	called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'
+	called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd' (HDL-93)
+Warning: Division with negative numbers is done with shifts 
+	in routine "/"
+	called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'
+	called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd' (HDL-93)
+
+Inferred memory devices in process 
+	in routine CustomRegister line 232 in
+         file 'Z:/QSC1/QSC1/Result.vhd'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        Q_reg        | Flip-flop |   4   |  N  | N  | ?  | ?  | ?  | ?  | ?  |
+===============================================================================
+
+Q_reg<2>
+--------
+    Async-reset: CLR
+
+
+Q_reg<0>
+--------
+    Async-reset: CLR
+
+
+Q_reg<1>
+--------
+    Async-reset: CLR
+
+
+Q_reg<3>
+--------
+    Async-reset: CLR
+
+
+Writing to hnl file 'Z:\QSC1\QSC1\DPMCOMP.TMP/workdirs/WORK/CustomRegister.hnl'

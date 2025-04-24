@@ -1,0 +1,1055 @@
+ngdbuild -p xcs10-3-pc84 -uc qsc1.ucf -dd .. U:\FLM\QSC1\QSC1\qsc1.EDN qsc1.ngd
+Release  - ngdbuild E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Command Line: ngdbuild -p xcs10-3-pc84 -uc qsc1.ucf -dd ..
+U:\FLM\QSC1\QSC1\qsc1.EDN qsc1.ngd 
+
+Launcher: Executing edif2ngd "U:\FLM\QSC1\QSC1\qsc1.EDN"
+"U:\flm\qsc1\qsc1\xproj\ver1\qsc1.ngo"
+INFO:NgdBuild - Release  - edif2ngd E.33
+INFO:NgdBuild - Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+Writing the design to "U:/flm/qsc1/qsc1/xproj/ver1/qsc1.ngo"...
+Reading NGO file "U:/flm/qsc1/qsc1/xproj/ver1/qsc1.ngo" ...
+Reading component libraries for design expansion...
+Launcher: Executing edif2ngd -noa "U:\FLM\QSC1\QSC1\RESULT.edf"
+"U:\flm\qsc1\qsc1\xproj\ver1\RESULT.ngo"
+INFO:NgdBuild - Release  - edif2ngd E.33
+INFO:NgdBuild - Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+Writing the design to "U:/flm/qsc1/qsc1/xproj/ver1/RESULT.ngo"...
+Loading design module "U:\flm\qsc1\qsc1\xproj\ver1\RESULT.ngo"...
+
+Annotating constraints to design from file "qsc1.ucf" ...
+Attached a PULLUP primitive to pad net H1/RG1_D1 
+Attached a PULLUP primitive to pad net H1/RG1_D0 
+Attached a PULLUP primitive to pad net H1/RG1_D3 
+Attached a PULLUP primitive to pad net H1/RG1_D2 
+Attached a PULLUP primitive to pad net H2/RG2_D3 
+Attached a PULLUP primitive to pad net H2/RG2_D2 
+Attached a PULLUP primitive to pad net H2/RG2_D1 
+Attached a PULLUP primitive to pad net H2/RG2_D0 
+Attached a PULLUP primitive to pad net H4/NR_2 
+Attached a PULLUP primitive to pad net H4/GI_GOI 
+Attached a PULLUP primitive to pad net H4/NZ_1 
+Attached a PULLUP primitive to pad net H4/NR_1 
+Attached a PULLUP primitive to pad net H4/NZ_2 
+Attached a PULLUP primitive to pad net U2/RG3_D2 
+Attached a PULLUP primitive to pad net U2/RG3_D1 
+Attached a PULLUP primitive to pad net U2/RG3_D0 
+Attached a PULLUP primitive to pad net U2/RG3_D3 
+
+Checking timing specifications ...
+
+Checking expanded design ...
+WARNING:NgdBuild:477 - clock net 'H4/C_FF' has non-clock connections
+WARNING:NgdBuild:452 - logical net 'Y2' has no driver
+WARNING:NgdBuild:454 - logical net 'Y3' has no load
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   3
+
+Writing NGD file "qsc1.ngd" ...
+
+Writing NGDBUILD log file "qsc1.bld"...
+
+NGDBUILD done.
+
+==================================================
+
+map -p xcs10-3-pc84 -o map.ncd   qsc1.ngd qsc1.pcf
+Release  - Map E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+Reading NGD file "qsc1.ngd"...
+Using target part "s10pc84-3".
+MAP spartan directives:
+   Partname = "xcs10-3-pc84".
+   Covermode = "area".
+   Pack Unrelated Logic into CLBs targeting 97% of CLB resources.
+Processing logical timing constraints...
+Verifying F/HMAP validity based on pre-trimmed logic...
+Removing unused logic...
+Packing logic in CLBs...
+   Running cover...
+   Undirected packing...
+Running physical design DRC...
+
+Design Summary:
+   Number of errors:        0
+   Number of warnings:      1
+   Number of CLBs:             31 out of   196   15%
+      CLB Flip Flops:       8
+      4 input LUTs:        59
+      3 input LUTs:        11
+   Number of bonded IOBs:      21 out of    61   34%
+      IOB Flops:            0
+      IOB Latches:          0
+   Number of clock IOB pads:    1 out of     8   12%
+   Number of primary CLKs:      1 out of     4   25%
+   Number of secondary CLKs:    1 out of     4   25%
+Total equivalent gate count for design: 451
+Additional JTAG gate count for IOBs:    1008
+Writing design file "map.ncd"...
+
+Removed Logic Summary:
+  56 block(s) removed
+   8 block(s) optimized away
+  56 signal(s) removed
+
+Mapping completed.
+See MAP report file "map.mrp" for details.
+
+==================================================
+
+par  -w -ol 2 -d 0 map.ncd qsc1.ncd qsc1.pcf
+Release  - Par E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+
+
+
+Constraints file: qsc1.pcf
+
+Loading design for application par from file map.ncd.
+   "qsc1" is an NCD, version 2.36, device xcs10, package pc84, speed -3
+Loading device for application par from file '4005e.nph' in environment
+C:/Xilinx/FNDT.
+Device speed data version:  D 1.3 FINAL.
+
+
+Resolving physical constraints.
+Finished resolving physical constraints.
+
+Device utilization summary:
+
+   Number of External IOBs            21 out of 112    34%
+      Flops:                           0
+      Latches:                         0
+   Number of IOBs driving Global Buffers    1 out of 8      12%
+
+   Number of CLBs                     31 out of 196    15%
+      Total CLB Flops:                 8 out of 392     2%
+      4 input LUTs:                   59 out of 392    15%
+      3 input LUTs:                   11 out of 196     5%
+
+   Number of PRI-CLKs                  1 out of 4      25%
+   Number of SEC-CLKs                  1 out of 4      25%
+
+
+
+Overall effort level (-ol):   2 (set by user)
+Placer effort level (-pl):    2 (set by user)
+Placer cost table entry (-t): 1
+Router effort level (-rl):    2 (set by user)
+Extra effort level (-xe):     0 (default)
+
+Starting initial Placement phase.  REAL time: 0 secs 
+Finished initial Placement phase.  REAL time: 0 secs 
+
+Starting Constructive Placer.  REAL time: 0 secs 
+Placer score = 45020
+Placer score = 37200
+Placer score = 31500
+Placer score = 29520
+Placer score = 27420
+Placer score = 26100
+Placer score = 25800
+Placer score = 24360
+Placer score = 23940
+Placer score = 22320
+Placer score = 22200
+Placer score = 21240
+Placer score = 20520
+Placer score = 19800
+Placer score = 18840
+Finished Constructive Placer.  REAL time: 0 secs 
+
+Dumping design to file qsc1.ncd.
+
+Starting Optimizing Placer.  REAL time: 0 secs 
+Optimizing  
+Swapped 5 comps.
+Xilinx Placer [1]   17220   REAL time: 0 secs 
+
+Finished Optimizing Placer.  REAL time: 0 secs 
+
+Dumping design to file qsc1.ncd.
+
+Total REAL time to Placer completion: 0 secs 
+Total CPU time to Placer completion: 0 secs 
+
+0 connection(s) routed; 212 unrouted.
+Starting router resource preassignment
+Completed router resource preassignment. REAL time: 0 secs 
+Starting iterative routing. 
+Routing active signals.
+End of iteration 1 
+212 successful; 0 unrouted; (0) REAL time: 0 secs 
+Constraints are met. 
+Dumping design to file qsc1.ncd.
+Starting cleanup 
+Improving routing.
+End of cleanup iteration 1 
+212 successful; 0 unrouted; (0) REAL time: 0 secs 
+Dumping design to file qsc1.ncd.
+Total REAL time: 0 secs 
+Total CPU  time: 0 secs 
+End of route.  212 routed (100.00%); 0 unrouted.
+No errors found. 
+Completely routed. 
+
+The design submitted for place and route did not meet the specified timing
+requirements.  Please use the static timing analysis tools (TRCE or Timing
+Analyzer) to report which constraints were not met.  To obtain a better result,
+you may try the following:
+  * Use the Re-entrant routing feature to run more router iterations on the
+design.
+  * Check the timing constraints to make sure the design is not
+over-constrained.
+  * Specify a higher placer effort level, if possible.
+  * Specify a higher router effort level.
+  * Use the Multi-Pass PAR (MPPR) feature.  This generates multiple placement
+trials from which the best (i.e., lowest design score) placement can be used
+with re-entrant routing to obtain a better result.
+
+Please consult the Development System Reference Guide for more detailed
+information about the usage options pertaining to these features.
+
+Total REAL time to Router completion: 0 secs 
+Total CPU time to Router completion: 0 secs 
+
+Generating PAR statistics.
+Dumping design to file qsc1.ncd.
+
+
+All signals are completely routed.
+
+Total REAL time to PAR completion: 0 secs 
+Total CPU time to PAR completion: 0 secs 
+
+Placement: Completed - No errors found.
+Routing: Completed - No errors found.
+
+PAR done.
+
+==================================================
+
+trce qsc1.ncd qsc1.pcf -e 3  -o qsc1.twr -xml qsc1.twx
+Release  - Trace E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+
+
+Loading design for application trce from file qsc1.ncd.
+   "qsc1" is an NCD, version 2.36, device xcs10, package pc84, speed -3
+Loading device for application trce from file '4005e.nph' in environment
+C:/Xilinx/FNDT.
+--------------------------------------------------------------------------------
+Release  - Trace E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+trce qsc1.ncd qsc1.pcf -e 3 -o qsc1.twr -xml qsc1.twx
+
+Design file:              qsc1.ncd
+Physical constraint file: qsc1.pcf
+Device,speed:             xcs10,-3 (D 1.3 FINAL)
+Report level:             error report
+--------------------------------------------------------------------------------
+
+WARNING:Timing - No timing constraints found, doing default enumeration.
+WARNING:Timing - Clock nets using non-dedicated resources were found in this
+   design. Clock skew on these resources will not be automatically addressed
+   during path analysis. To create a timing report that analyzes clock skew for
+   these paths, run trce with the '-skew' option.
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0
+
+Constraints cover 211 paths, 79 nets, and 212 connections (100.0% coverage)
+
+Design statistics:
+   Minimum period:  27.261ns (Maximum frequency:  36.682MHz)
+   Maximum net delay:  12.089ns
+
+
+Analysis completed Thu Mar 13 21:38:16 2025
+--------------------------------------------------------------------------------
+
+Generating Report ...
+
+Total time: 0 secs 
+
+==================================================
+
+ngdanno qsc1.ncd map.ngm 
+Release  - ngdanno E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+Reading .ngm file "map.ngm"...
+
+Loading design for application ngdanno from file qsc1.ncd.
+   "qsc1" is an NCD, version 2.36, device xcs10, package pc84, speed -3
+Loading device for application ngdanno from file '4005e.nph' in environment
+C:/Xilinx/FNDT.
+Building NGA image...
+Annotating NGA image...
+Distributing delays...
+Creating Guaranteed setup and hold checks... 
+WARNING:Anno:152 - default voltage/temp values not available in speed file. 
+   Using ngdanno defaults of 4.75V and  85C.
+Resolving logical and physical hierarchies...
+Running NGD DRC...
+WARNING:Ngd:333 - NOTE: This design contains the undriven net "GSR" which you
+   could drive during simulation to get valid results.
+WARNING:Ngd:333 - NOTE: This design contains the undriven net "GTS" which you
+   could drive during simulation to get valid results.
+Writing .nga file "qsc1.nga"...
+   54 logical models annotated
+
+==================================================
+
+ngd2edif -w -v fndtn qsc1.nga time_sim.edn
+Release  - ngd2edif E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+ngd2edif: Reading design qsc1.nga ...
+ngd2edif: Specializing design ...
+ngd2edif: Specializing design completed.
+
+ngd2edif: Processing design ...
+ngd2edif:   Preping physical only global signals ...
+ngd2edif:   Preping design's networks ...
+ngd2edif:   Preping design's macros ...
+ngd2edif: Preping design completed.
+
+ngd2edif: Writing EDIF netlist file time_sim.edn ...
+ngd2edif: Writing file time_sim.edn completed.
+
+
+==================================================
+
+xcpy time_sim.edn U:\FLM\QSC1\QSC1\time_sim.edn
+
+==================================================
+
+bitgen qsc1.ncd  -w -f bitgen.ut
+Release  - Bitgen E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Loading design for application Bitgen from file qsc1.ncd.
+   "qsc1" is an NCD, version 2.36, device xcs10, package pc84, speed -3
+Loading device for application Bitgen from file '4005e.nph' in environment
+C:/Xilinx/FNDT.
+Opened constraints file qsc1.pcf.
+
+Thu Mar 13 21:38:19 2025
+
+Running DRC.
+DRC detected 0 errors and 0 warnings.
+Creating bit map...
+Saving bit stream in "qsc1.bit".
+Bitstream generation is complete.
+
+==================================================
+
+xcpy qsc1.bit U:\FLM\QSC1\QSC1\qsc1.bit
+
+==================================================
+
+ngdbuild -p xcs10-3-pc84 -uc qsc1.ucf -dd .. U:\FLM\QSC1\QSC1\qsc1.EDN qsc1.ngd
+Release  - ngdbuild E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Command Line: ngdbuild -p xcs10-3-pc84 -uc qsc1.ucf -dd ..
+U:\FLM\QSC1\QSC1\qsc1.EDN qsc1.ngd 
+
+Launcher: "qsc1.ngo" is up to date.
+Reading NGO file "U:/flm/qsc1/qsc1/xproj/ver1/qsc1.ngo" ...
+Reading component libraries for design expansion...
+Launcher: "RESULT.ngo" is up to date.
+Loading design module "U:\flm\qsc1\qsc1\xproj\ver1\RESULT.ngo"...
+
+Annotating constraints to design from file "qsc1.ucf" ...
+Attached a PULLUP primitive to pad net H1/RG1_D1 
+Attached a PULLUP primitive to pad net H1/RG1_D0 
+Attached a PULLUP primitive to pad net H1/RG1_D3 
+Attached a PULLUP primitive to pad net H1/RG1_D2 
+Attached a PULLUP primitive to pad net H2/RG2_D3 
+Attached a PULLUP primitive to pad net H2/RG2_D2 
+Attached a PULLUP primitive to pad net H2/RG2_D1 
+Attached a PULLUP primitive to pad net H2/RG2_D0 
+Attached a PULLUP primitive to pad net H4/NR_2 
+Attached a PULLUP primitive to pad net H4/GI_GOI 
+Attached a PULLUP primitive to pad net H4/NZ_1 
+Attached a PULLUP primitive to pad net H4/NR_1 
+Attached a PULLUP primitive to pad net H4/NZ_2 
+Attached a PULLUP primitive to pad net U2/RG3_D2 
+Attached a PULLUP primitive to pad net U2/RG3_D1 
+Attached a PULLUP primitive to pad net U2/RG3_D0 
+Attached a PULLUP primitive to pad net U2/RG3_D3 
+
+Checking timing specifications ...
+
+Checking expanded design ...
+WARNING:NgdBuild:477 - clock net 'H4/C_FF' has non-clock connections
+WARNING:NgdBuild:452 - logical net 'Y2' has no driver
+WARNING:NgdBuild:454 - logical net 'Y3' has no load
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   3
+
+Writing NGD file "qsc1.ngd" ...
+
+Writing NGDBUILD log file "qsc1.bld"...
+
+NGDBUILD done.
+
+==================================================
+
+map -p xcs10-3-pc84 -o map.ncd   qsc1.ngd qsc1.pcf
+Release  - Map E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+Reading NGD file "qsc1.ngd"...
+Using target part "s10pc84-3".
+MAP spartan directives:
+   Partname = "xcs10-3-pc84".
+   Covermode = "area".
+   Pack Unrelated Logic into CLBs targeting 97% of CLB resources.
+Processing logical timing constraints...
+Verifying F/HMAP validity based on pre-trimmed logic...
+Removing unused logic...
+Packing logic in CLBs...
+   Running cover...
+   Undirected packing...
+Running physical design DRC...
+
+Design Summary:
+   Number of errors:        0
+   Number of warnings:      1
+   Number of CLBs:             31 out of   196   15%
+      CLB Flip Flops:       8
+      4 input LUTs:        59
+      3 input LUTs:        11
+   Number of bonded IOBs:      21 out of    61   34%
+      IOB Flops:            0
+      IOB Latches:          0
+   Number of clock IOB pads:    1 out of     8   12%
+   Number of primary CLKs:      1 out of     4   25%
+   Number of secondary CLKs:    1 out of     4   25%
+Total equivalent gate count for design: 451
+Additional JTAG gate count for IOBs:    1008
+Writing design file "map.ncd"...
+
+Removed Logic Summary:
+  56 block(s) removed
+   8 block(s) optimized away
+  56 signal(s) removed
+
+Mapping completed.
+See MAP report file "map.mrp" for details.
+
+==================================================
+
+par  -w -ol 2 -d 0 map.ncd qsc1.ncd qsc1.pcf
+Release  - Par E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+
+
+
+Constraints file: qsc1.pcf
+
+Loading design for application par from file map.ncd.
+   "qsc1" is an NCD, version 2.36, device xcs10, package pc84, speed -3
+Loading device for application par from file '4005e.nph' in environment
+C:/Xilinx/FNDT.
+Device speed data version:  D 1.3 FINAL.
+
+
+Resolving physical constraints.
+Finished resolving physical constraints.
+
+Device utilization summary:
+
+   Number of External IOBs            21 out of 112    34%
+      Flops:                           0
+      Latches:                         0
+   Number of IOBs driving Global Buffers    1 out of 8      12%
+
+   Number of CLBs                     31 out of 196    15%
+      Total CLB Flops:                 8 out of 392     2%
+      4 input LUTs:                   59 out of 392    15%
+      3 input LUTs:                   11 out of 196     5%
+
+   Number of PRI-CLKs                  1 out of 4      25%
+   Number of SEC-CLKs                  1 out of 4      25%
+
+
+
+Overall effort level (-ol):   2 (set by user)
+Placer effort level (-pl):    2 (set by user)
+Placer cost table entry (-t): 1
+Router effort level (-rl):    2 (set by user)
+Extra effort level (-xe):     0 (default)
+
+Starting initial Placement phase.  REAL time: 0 secs 
+Finished initial Placement phase.  REAL time: 0 secs 
+
+Starting Constructive Placer.  REAL time: 0 secs 
+Placer score = 45020
+Placer score = 37200
+Placer score = 31500
+Placer score = 29520
+Placer score = 27420
+Placer score = 26100
+Placer score = 25800
+Placer score = 24360
+Placer score = 23940
+Placer score = 22320
+Placer score = 22200
+Placer score = 21240
+Placer score = 20520
+Placer score = 19800
+Placer score = 18840
+Finished Constructive Placer.  REAL time: 0 secs 
+
+Dumping design to file qsc1.ncd.
+
+Starting Optimizing Placer.  REAL time: 0 secs 
+Optimizing  
+Swapped 5 comps.
+Xilinx Placer [1]   17220   REAL time: 0 secs 
+
+Finished Optimizing Placer.  REAL time: 0 secs 
+
+Dumping design to file qsc1.ncd.
+
+Total REAL time to Placer completion: 0 secs 
+Total CPU time to Placer completion: 0 secs 
+
+0 connection(s) routed; 212 unrouted.
+Starting router resource preassignment
+Completed router resource preassignment. REAL time: 0 secs 
+Starting iterative routing. 
+Routing active signals.
+End of iteration 1 
+212 successful; 0 unrouted; (0) REAL time: 0 secs 
+Constraints are met. 
+Dumping design to file qsc1.ncd.
+Starting cleanup 
+Improving routing.
+End of cleanup iteration 1 
+212 successful; 0 unrouted; (0) REAL time: 0 secs 
+Dumping design to file qsc1.ncd.
+Total REAL time: 0 secs 
+Total CPU  time: 0 secs 
+End of route.  212 routed (100.00%); 0 unrouted.
+No errors found. 
+Completely routed. 
+
+The design submitted for place and route did not meet the specified timing
+requirements.  Please use the static timing analysis tools (TRCE or Timing
+Analyzer) to report which constraints were not met.  To obtain a better result,
+you may try the following:
+  * Use the Re-entrant routing feature to run more router iterations on the
+design.
+  * Check the timing constraints to make sure the design is not
+over-constrained.
+  * Specify a higher placer effort level, if possible.
+  * Specify a higher router effort level.
+  * Use the Multi-Pass PAR (MPPR) feature.  This generates multiple placement
+trials from which the best (i.e., lowest design score) placement can be used
+with re-entrant routing to obtain a better result.
+
+Please consult the Development System Reference Guide for more detailed
+information about the usage options pertaining to these features.
+
+Total REAL time to Router completion: 0 secs 
+Total CPU time to Router completion: 0 secs 
+
+Generating PAR statistics.
+Dumping design to file qsc1.ncd.
+
+
+All signals are completely routed.
+
+Total REAL time to PAR completion: 0 secs 
+Total CPU time to PAR completion: 0 secs 
+
+Placement: Completed - No errors found.
+Routing: Completed - No errors found.
+
+PAR done.
+
+==================================================
+
+trce qsc1.ncd qsc1.pcf -e 3  -o qsc1.twr -xml qsc1.twx
+Release  - Trace E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+
+
+Loading design for application trce from file qsc1.ncd.
+   "qsc1" is an NCD, version 2.36, device xcs10, package pc84, speed -3
+Loading device for application trce from file '4005e.nph' in environment
+C:/Xilinx/FNDT.
+--------------------------------------------------------------------------------
+Release  - Trace E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+trce qsc1.ncd qsc1.pcf -e 3 -o qsc1.twr -xml qsc1.twx
+
+Design file:              qsc1.ncd
+Physical constraint file: qsc1.pcf
+Device,speed:             xcs10,-3 (D 1.3 FINAL)
+Report level:             error report
+--------------------------------------------------------------------------------
+
+WARNING:Timing - No timing constraints found, doing default enumeration.
+WARNING:Timing - Clock nets using non-dedicated resources were found in this
+   design. Clock skew on these resources will not be automatically addressed
+   during path analysis. To create a timing report that analyzes clock skew for
+   these paths, run trce with the '-skew' option.
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0
+
+Constraints cover 211 paths, 79 nets, and 212 connections (100.0% coverage)
+
+Design statistics:
+   Minimum period:  27.261ns (Maximum frequency:  36.682MHz)
+   Maximum net delay:  12.089ns
+
+
+Analysis completed Thu Mar 13 21:38:53 2025
+--------------------------------------------------------------------------------
+
+Generating Report ...
+
+Total time: 0 secs 
+
+==================================================
+
+ngdanno qsc1.ncd map.ngm 
+Release  - ngdanno E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+Reading .ngm file "map.ngm"...
+
+Loading design for application ngdanno from file qsc1.ncd.
+   "qsc1" is an NCD, version 2.36, device xcs10, package pc84, speed -3
+Loading device for application ngdanno from file '4005e.nph' in environment
+C:/Xilinx/FNDT.
+Building NGA image...
+Annotating NGA image...
+Distributing delays...
+Creating Guaranteed setup and hold checks... 
+WARNING:Anno:152 - default voltage/temp values not available in speed file. 
+   Using ngdanno defaults of 4.75V and  85C.
+Resolving logical and physical hierarchies...
+Running NGD DRC...
+WARNING:Ngd:333 - NOTE: This design contains the undriven net "GSR" which you
+   could drive during simulation to get valid results.
+WARNING:Ngd:333 - NOTE: This design contains the undriven net "GTS" which you
+   could drive during simulation to get valid results.
+Writing .nga file "qsc1.nga"...
+   54 logical models annotated
+
+==================================================
+
+ngd2edif -w -v fndtn qsc1.nga time_sim.edn
+Release  - ngd2edif E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+ngd2edif: Reading design qsc1.nga ...
+ngd2edif: Specializing design ...
+ngd2edif: Specializing design completed.
+
+ngd2edif: Processing design ...
+ngd2edif:   Preping physical only global signals ...
+ngd2edif:   Preping design's networks ...
+ngd2edif:   Preping design's macros ...
+ngd2edif: Preping design completed.
+
+ngd2edif: Writing EDIF netlist file time_sim.edn ...
+ngd2edif: Writing file time_sim.edn completed.
+
+
+==================================================
+
+xcpy time_sim.edn U:\FLM\QSC1\QSC1\time_sim.edn
+
+==================================================
+
+bitgen qsc1.ncd  -w -f bitgen.ut
+Release  - Bitgen E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Loading design for application Bitgen from file qsc1.ncd.
+   "qsc1" is an NCD, version 2.36, device xcs10, package pc84, speed -3
+Loading device for application Bitgen from file '4005e.nph' in environment
+C:/Xilinx/FNDT.
+Opened constraints file qsc1.pcf.
+
+Thu Mar 13 21:38:57 2025
+
+Running DRC.
+DRC detected 0 errors and 0 warnings.
+Creating bit map...
+Saving bit stream in "qsc1.bit".
+Bitstream generation is complete.
+
+==================================================
+
+xcpy qsc1.bit U:\FLM\QSC1\QSC1\qsc1.bit
+
+==================================================
+
+ngdbuild -p xcs10-3-pc84 -uc qsc1.ucf -dd .. U:\FLM\QSC1\QSC1\qsc1.EDN qsc1.ngd
+Release  - ngdbuild E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Command Line: ngdbuild -p xcs10-3-pc84 -uc qsc1.ucf -dd ..
+U:\FLM\QSC1\QSC1\qsc1.EDN qsc1.ngd 
+
+Launcher: "qsc1.ngo" is up to date.
+Reading NGO file "U:/flm/qsc1/qsc1/xproj/ver1/qsc1.ngo" ...
+Reading component libraries for design expansion...
+Launcher: "RESULT.ngo" is up to date.
+Loading design module "U:\flm\qsc1\qsc1\xproj\ver1\RESULT.ngo"...
+
+Annotating constraints to design from file "qsc1.ucf" ...
+Attached a PULLUP primitive to pad net H1/RG1_D1 
+Attached a PULLUP primitive to pad net H1/RG1_D0 
+Attached a PULLUP primitive to pad net H1/RG1_D3 
+Attached a PULLUP primitive to pad net H1/RG1_D2 
+Attached a PULLUP primitive to pad net H2/RG2_D3 
+Attached a PULLUP primitive to pad net H2/RG2_D2 
+Attached a PULLUP primitive to pad net H2/RG2_D1 
+Attached a PULLUP primitive to pad net H2/RG2_D0 
+Attached a PULLUP primitive to pad net H4/NR_2 
+Attached a PULLUP primitive to pad net H4/GI_GOI 
+Attached a PULLUP primitive to pad net H4/NZ_1 
+Attached a PULLUP primitive to pad net H4/NR_1 
+Attached a PULLUP primitive to pad net H4/NZ_2 
+Attached a PULLUP primitive to pad net U2/RG3_D2 
+Attached a PULLUP primitive to pad net U2/RG3_D1 
+Attached a PULLUP primitive to pad net U2/RG3_D0 
+Attached a PULLUP primitive to pad net U2/RG3_D3 
+
+Checking timing specifications ...
+
+Checking expanded design ...
+WARNING:NgdBuild:477 - clock net 'H4/C_FF' has non-clock connections
+WARNING:NgdBuild:452 - logical net 'Y2' has no driver
+WARNING:NgdBuild:454 - logical net 'Y3' has no load
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   3
+
+Writing NGD file "qsc1.ngd" ...
+
+Writing NGDBUILD log file "qsc1.bld"...
+
+NGDBUILD done.
+
+==================================================
+
+map -p xcs10-3-pc84 -o map.ncd   qsc1.ngd qsc1.pcf
+Release  - Map E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+Reading NGD file "qsc1.ngd"...
+Using target part "s10pc84-3".
+MAP spartan directives:
+   Partname = "xcs10-3-pc84".
+   Covermode = "area".
+   Pack Unrelated Logic into CLBs targeting 97% of CLB resources.
+Processing logical timing constraints...
+Verifying F/HMAP validity based on pre-trimmed logic...
+Removing unused logic...
+Packing logic in CLBs...
+   Running cover...
+   Undirected packing...
+Running physical design DRC...
+
+Design Summary:
+   Number of errors:        0
+   Number of warnings:      1
+   Number of CLBs:             31 out of   196   15%
+      CLB Flip Flops:       8
+      4 input LUTs:        59
+      3 input LUTs:        11
+   Number of bonded IOBs:      21 out of    61   34%
+      IOB Flops:            0
+      IOB Latches:          0
+   Number of clock IOB pads:    1 out of     8   12%
+   Number of primary CLKs:      1 out of     4   25%
+   Number of secondary CLKs:    1 out of     4   25%
+Total equivalent gate count for design: 451
+Additional JTAG gate count for IOBs:    1008
+Writing design file "map.ncd"...
+
+Removed Logic Summary:
+  56 block(s) removed
+   8 block(s) optimized away
+  56 signal(s) removed
+
+Mapping completed.
+See MAP report file "map.mrp" for details.
+
+==================================================
+
+par  -w -ol 2 -d 0 map.ncd qsc1.ncd qsc1.pcf
+Release  - Par E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+
+
+
+Constraints file: qsc1.pcf
+
+Loading design for application par from file map.ncd.
+   "qsc1" is an NCD, version 2.36, device xcs10, package pc84, speed -3
+Loading device for application par from file '4005e.nph' in environment
+C:/Xilinx/FNDT.
+Device speed data version:  D 1.3 FINAL.
+
+
+Resolving physical constraints.
+Finished resolving physical constraints.
+
+Device utilization summary:
+
+   Number of External IOBs            21 out of 112    34%
+      Flops:                           0
+      Latches:                         0
+   Number of IOBs driving Global Buffers    1 out of 8      12%
+
+   Number of CLBs                     31 out of 196    15%
+      Total CLB Flops:                 8 out of 392     2%
+      4 input LUTs:                   59 out of 392    15%
+      3 input LUTs:                   11 out of 196     5%
+
+   Number of PRI-CLKs                  1 out of 4      25%
+   Number of SEC-CLKs                  1 out of 4      25%
+
+
+
+Overall effort level (-ol):   2 (set by user)
+Placer effort level (-pl):    2 (set by user)
+Placer cost table entry (-t): 1
+Router effort level (-rl):    2 (set by user)
+Extra effort level (-xe):     0 (default)
+
+Starting initial Placement phase.  REAL time: 0 secs 
+Finished initial Placement phase.  REAL time: 0 secs 
+
+Starting Constructive Placer.  REAL time: 0 secs 
+Placer score = 45020
+Placer score = 37200
+Placer score = 31500
+Placer score = 29520
+Placer score = 27420
+Placer score = 26100
+Placer score = 25800
+Placer score = 24360
+Placer score = 23940
+Placer score = 22320
+Placer score = 22200
+Placer score = 21240
+Placer score = 20520
+Placer score = 19800
+Placer score = 18840
+Finished Constructive Placer.  REAL time: 0 secs 
+
+Dumping design to file qsc1.ncd.
+
+Starting Optimizing Placer.  REAL time: 0 secs 
+Optimizing  
+Swapped 5 comps.
+Xilinx Placer [1]   17220   REAL time: 0 secs 
+
+Finished Optimizing Placer.  REAL time: 0 secs 
+
+Dumping design to file qsc1.ncd.
+
+Total REAL time to Placer completion: 0 secs 
+Total CPU time to Placer completion: 0 secs 
+
+0 connection(s) routed; 212 unrouted.
+Starting router resource preassignment
+Completed router resource preassignment. REAL time: 0 secs 
+Starting iterative routing. 
+Routing active signals.
+End of iteration 1 
+212 successful; 0 unrouted; (0) REAL time: 0 secs 
+Constraints are met. 
+Dumping design to file qsc1.ncd.
+Starting cleanup 
+Improving routing.
+End of cleanup iteration 1 
+212 successful; 0 unrouted; (0) REAL time: 0 secs 
+Dumping design to file qsc1.ncd.
+Total REAL time: 0 secs 
+Total CPU  time: 0 secs 
+End of route.  212 routed (100.00%); 0 unrouted.
+No errors found. 
+Completely routed. 
+
+The design submitted for place and route did not meet the specified timing
+requirements.  Please use the static timing analysis tools (TRCE or Timing
+Analyzer) to report which constraints were not met.  To obtain a better result,
+you may try the following:
+  * Use the Re-entrant routing feature to run more router iterations on the
+design.
+  * Check the timing constraints to make sure the design is not
+over-constrained.
+  * Specify a higher placer effort level, if possible.
+  * Specify a higher router effort level.
+  * Use the Multi-Pass PAR (MPPR) feature.  This generates multiple placement
+trials from which the best (i.e., lowest design score) placement can be used
+with re-entrant routing to obtain a better result.
+
+Please consult the Development System Reference Guide for more detailed
+information about the usage options pertaining to these features.
+
+Total REAL time to Router completion: 0 secs 
+Total CPU time to Router completion: 0 secs 
+
+Generating PAR statistics.
+Dumping design to file qsc1.ncd.
+
+
+All signals are completely routed.
+
+Total REAL time to PAR completion: 0 secs 
+Total CPU time to PAR completion: 0 secs 
+
+Placement: Completed - No errors found.
+Routing: Completed - No errors found.
+
+PAR done.
+
+==================================================
+
+trce qsc1.ncd qsc1.pcf -e 3  -o qsc1.twr -xml qsc1.twx
+Release  - Trace E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+
+
+Loading design for application trce from file qsc1.ncd.
+   "qsc1" is an NCD, version 2.36, device xcs10, package pc84, speed -3
+Loading device for application trce from file '4005e.nph' in environment
+C:/Xilinx/FNDT.
+--------------------------------------------------------------------------------
+Release  - Trace E.30
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+trce qsc1.ncd qsc1.pcf -e 3 -o qsc1.twr -xml qsc1.twx
+
+Design file:              qsc1.ncd
+Physical constraint file: qsc1.pcf
+Device,speed:             xcs10,-3 (D 1.3 FINAL)
+Report level:             error report
+--------------------------------------------------------------------------------
+
+WARNING:Timing - No timing constraints found, doing default enumeration.
+WARNING:Timing - Clock nets using non-dedicated resources were found in this
+   design. Clock skew on these resources will not be automatically addressed
+   during path analysis. To create a timing report that analyzes clock skew for
+   these paths, run trce with the '-skew' option.
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0
+
+Constraints cover 211 paths, 79 nets, and 212 connections (100.0% coverage)
+
+Design statistics:
+   Minimum period:  27.261ns (Maximum frequency:  36.682MHz)
+   Maximum net delay:  12.089ns
+
+
+Analysis completed Thu Mar 13 21:41:48 2025
+--------------------------------------------------------------------------------
+
+Generating Report ...
+
+Total time: 0 secs 
+
+==================================================
+
+ngdanno qsc1.ncd map.ngm 
+Release  - ngdanno E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+Reading .ngm file "map.ngm"...
+
+Loading design for application ngdanno from file qsc1.ncd.
+   "qsc1" is an NCD, version 2.36, device xcs10, package pc84, speed -3
+Loading device for application ngdanno from file '4005e.nph' in environment
+C:/Xilinx/FNDT.
+Building NGA image...
+Annotating NGA image...
+Distributing delays...
+Creating Guaranteed setup and hold checks... 
+WARNING:Anno:152 - default voltage/temp values not available in speed file. 
+   Using ngdanno defaults of 4.75V and  85C.
+Resolving logical and physical hierarchies...
+Running NGD DRC...
+WARNING:Ngd:333 - NOTE: This design contains the undriven net "GSR" which you
+   could drive during simulation to get valid results.
+WARNING:Ngd:333 - NOTE: This design contains the undriven net "GTS" which you
+   could drive during simulation to get valid results.
+Writing .nga file "qsc1.nga"...
+   54 logical models annotated
+
+==================================================
+
+ngd2edif -w -v fndtn qsc1.nga time_sim.edn
+Release  - ngd2edif E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+ngd2edif: Reading design qsc1.nga ...
+ngd2edif: Specializing design ...
+ngd2edif: Specializing design completed.
+
+ngd2edif: Processing design ...
+ngd2edif:   Preping physical only global signals ...
+ngd2edif:   Preping design's networks ...
+ngd2edif:   Preping design's macros ...
+ngd2edif: Preping design completed.
+
+ngd2edif: Writing EDIF netlist file time_sim.edn ...
+ngd2edif: Writing file time_sim.edn completed.
+
+
+==================================================
+
+xcpy time_sim.edn U:\FLM\QSC1\QSC1\time_sim.edn
+
+==================================================
+
+bitgen qsc1.ncd  -w -f bitgen.ut
+Release  - Bitgen E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Loading design for application Bitgen from file qsc1.ncd.
+   "qsc1" is an NCD, version 2.36, device xcs10, package pc84, speed -3
+Loading device for application Bitgen from file '4005e.nph' in environment
+C:/Xilinx/FNDT.
+Opened constraints file qsc1.pcf.
+
+Thu Mar 13 21:41:51 2025
+
+Running DRC.
+DRC detected 0 errors and 0 warnings.
+Creating bit map...
+Saving bit stream in "qsc1.bit".
+Bitstream generation is complete.
+
+==================================================
+
+xcpy qsc1.bit U:\FLM\QSC1\QSC1\qsc1.bit

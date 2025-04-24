@@ -1,0 +1,37 @@
+Initialize DPM...
+
+Checking license...
+
+License check OK.
+
+Source:	Z:\QSC1\QSC1\Result.vhd.
+Family: 	SPARTAN.
+Device:	S10PC84-3.
+
+Create project...
+Create file...
+Analyze source file...
+Create chip...
+	Warning: Division with negative numbers is done with shifts 
+	in routine "/"
+	called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'
+	called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93)
+	Warning: Division with negative numbers is done with shifts 
+	in routine "/"
+	called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'
+	called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93)
+	Warning: Division with negative numbers is done with shifts 
+	in routine "/"
+	called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'
+	called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93)
+	Warning: Division with negative numbers is done with shifts 
+	in routine "/"
+	called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'
+	called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93)
+	Warning: Output overflows in multiplication 
+	in routine $vhdl_mult_const
+	called from "*"
+	called from CustomSummator line 339 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93)
+Optimize chip...
+Export chip...
+Done.

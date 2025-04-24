@@ -1,0 +1,170 @@
+Release  - Par E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+
+Thu Mar 13 21:41:45 2025
+
+par -w -ol 2 -d 0 map.ncd qsc1.ncd qsc1.pcf
+
+
+Constraints file: qsc1.pcf
+
+Loading design for application par from file map.ncd.
+   "qsc1" is an NCD, version 2.36, device xcs10, package pc84, speed -3
+Loading device for application par from file '4005e.nph' in environment
+C:/Xilinx/FNDT.
+Device speed data version:  D 1.3 FINAL.
+
+
+Resolved that IOB <H1/RG1_D0> must be placed at site P46.
+Resolved that IOB <H1/RG1_D1> must be placed at site P45.
+Resolved that IOB <H1/RG1_D2> must be placed at site P44.
+Resolved that IOB <H1/RG1_D3> must be placed at site P40.
+Resolved that IOB <H2/RG2_D0> must be placed at site P58.
+Resolved that IOB <H2/RG2_D1> must be placed at site P57.
+Resolved that IOB <H2/RG2_D2> must be placed at site P56.
+Resolved that IOB <H2/RG2_D3> must be placed at site P51.
+Resolved that CLKIOB <H4/CLK11059> must be placed at site P35.
+Resolved that IOB <H4/GI_GOI> must be placed at site P61.
+Resolved that IOB <H4/NR_1> must be placed at site P60.
+Resolved that IOB <H4/NR_2> must be placed at site P65.
+Resolved that IOB <H4/NZ_1> must be placed at site P59.
+Resolved that IOB <H4/NZ_2> must be placed at site P62.
+Resolved that IOB <H5/$Net00033_> must be placed at site P38.
+Resolved that IOB <H5/$Net00034_> must be placed at site P29.
+Resolved that IOB <H5/$Net00035_> must be placed at site P26.
+Resolved that IOB <H5/$Net00036_> must be placed at site P23.
+Resolved that IOB <U2/RG3_D0> must be placed at site P50.
+Resolved that IOB <U2/RG3_D1> must be placed at site P49.
+Resolved that IOB <U2/RG3_D2> must be placed at site P48.
+
+
+Device utilization summary:
+
+   Number of External IOBs            21 out of 112    34%
+      Flops:                           0
+      Latches:                         0
+   Number of IOBs driving Global Buffers    1 out of 8      12%
+
+   Number of CLBs                     31 out of 196    15%
+      Total CLB Flops:                 8 out of 392     2%
+      4 input LUTs:                   59 out of 392    15%
+      3 input LUTs:                   11 out of 196     5%
+
+   Number of PRI-CLKs                  1 out of 4      25%
+   Number of SEC-CLKs                  1 out of 4      25%
+
+
+
+Overall effort level (-ol):   2 (set by user)
+Placer effort level (-pl):    2 (set by user)
+Placer cost table entry (-t): 1
+Router effort level (-rl):    2 (set by user)
+Extra effort level (-xe):     0 (default)
+
+Starting initial Placement phase.  REAL time: 0 secs 
+Finished initial Placement phase.  REAL time: 0 secs 
+
+Starting Constructive Placer.  REAL time: 0 secs 
+Placer score = 45020
+Placer score = 37200
+Placer score = 31500
+Placer score = 29520
+Placer score = 27420
+Placer score = 26100
+Placer score = 25800
+Placer score = 24360
+Placer score = 23940
+Placer score = 22320
+Placer score = 22200
+Placer score = 21240
+Placer score = 20520
+Placer score = 19800
+Placer score = 18840
+Finished Constructive Placer.  REAL time: 0 secs 
+
+Dumping design to file qsc1.ncd.
+
+Starting Optimizing Placer.  REAL time: 0 secs 
+Optimizing  
+Swapped 5 comps.
+Xilinx Placer [1]   17220   REAL time: 0 secs 
+
+Finished Optimizing Placer.  REAL time: 0 secs 
+
+Dumping design to file qsc1.ncd.
+
+Total REAL time to Placer completion: 0 secs 
+Total CPU time to Placer completion: 0 secs 
+
+0 connection(s) routed; 212 unrouted.
+Starting router resource preassignment
+Completed router resource preassignment. REAL time: 0 secs 
+Starting iterative routing. 
+Routing active signals.
+End of iteration 1 
+212 successful; 0 unrouted; (0) REAL time: 0 secs 
+Constraints are met. 
+Dumping design to file qsc1.ncd.
+Starting cleanup 
+Improving routing.
+End of cleanup iteration 1 
+212 successful; 0 unrouted; (0) REAL time: 0 secs 
+Dumping design to file qsc1.ncd.
+Total REAL time: 0 secs 
+Total CPU  time: 0 secs 
+End of route.  212 routed (100.00%); 0 unrouted.
+No errors found. 
+Completely routed. 
+
+The design submitted for place and route did not meet the specified timing
+requirements.  Please use the static timing analysis tools (TRCE or Timing
+Analyzer) to report which constraints were not met.  To obtain a better result,
+you may try the following:
+  * Use the Re-entrant routing feature to run more router iterations on the
+design.
+  * Check the timing constraints to make sure the design is not
+over-constrained.
+  * Specify a higher placer effort level, if possible.
+  * Specify a higher router effort level.
+  * Use the Multi-Pass PAR (MPPR) feature.  This generates multiple placement
+trials from which the best (i.e., lowest design score) placement can be used
+with re-entrant routing to obtain a better result.
+
+Please consult the Development System Reference Guide for more detailed
+information about the usage options pertaining to these features.
+
+Total REAL time to Router completion: 0 secs 
+Total CPU time to Router completion: 0 secs 
+
+Generating PAR statistics.
+
+   The Delay Summary Report
+
+   The Score for this design is: 487
+
+
+The Number of signals not completely routed for this design is: 0
+
+   The Average Connection Delay for this design is:        3.493 ns
+   The Maximum Pin Delay is:                              12.089 ns
+   The Average Connection Delay on the 10 Worst Nets is:   6.926 ns
+
+   Listing Pin Delays by value: (ns)
+
+    d < 2.00   < d < 4.00  < d < 6.00  < d < 8.00  < d < 13.00  d >= 13.00
+   ---------   ---------   ---------   ---------   ---------   ---------
+          82          58          37          16          19           0
+
+Dumping design to file qsc1.ncd.
+
+
+All signals are completely routed.
+
+Total REAL time to PAR completion: 0 secs 
+Total CPU time to PAR completion: 0 secs 
+
+Placement: Completed - No errors found.
+Routing: Completed - No errors found.
+
+PAR done.

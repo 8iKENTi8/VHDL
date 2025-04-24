@@ -1,0 +1,5 @@
+Warning: Output overflows in multiplication 
+	in routine $vhdl_mult_const
+	called from "*"
+	called from CustomSummator line 339 in file 'Z:/QSC1/QSC1/Result.vhd' (HDL-93)
+Writing to hnl file 'Z:\QSC1\QSC1\DPMCOMP.TMP/workdirs/WORK/CustomSummator.hnl'

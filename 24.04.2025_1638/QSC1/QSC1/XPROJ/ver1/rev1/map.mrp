@@ -1,0 +1,256 @@
+Release  - Map E.30
+Xilinx Mapping Report File for Design 'qsc1'
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Design Information
+------------------
+Command Line   : m1map -p xcs10-3-pc84 -o map.ncd qsc1.ngd qsc1.pcf 
+Target Device  : xs10
+Target Package : pc84
+Target Speed   : -3
+Mapper Version : spartan -- E.30
+
+Design Summary
+--------------
+   Number of errors:        0
+   Number of warnings:      1
+   Number of CLBs:             31 out of   196   15%
+      CLB Flip Flops:       8
+      4 input LUTs:        59
+      3 input LUTs:        11
+   Number of bonded IOBs:      21 out of    61   34%
+      IOB Flops:            0
+      IOB Latches:          0
+   Number of clock IOB pads:    1 out of     8   12%
+   Number of primary CLKs:      1 out of     4   25%
+   Number of secondary CLKs:    1 out of     4   25%
+Total equivalent gate count for design: 451
+Additional JTAG gate count for IOBs:    1008
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group Summary
+Section 10 - Modular Design Summary
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:OldMap:78 - All of the external outputs in this design are using
+   slew-rate-limited output drivers.  The delay on speed critical outputs can be
+   dramatically reduced by designating them as fast outputs in the original
+   design.  Please see your vendor interface documentation for specific
+   information on how to do this within your design-entry tool.
+   Note: You should be careful not to designate too many outputs which switch
+   together as fast, because this can cause excessive ground bounce.  For more
+   information on this subject, please refer to the IOB switching characteristic
+   guidelines for the device you are using in the Programmable Logic Data Book.
+
+Section 3 - Informational
+-------------------------
+
+Section 4 - Removed Logic Summary
+---------------------------------
+  56 block(s) removed
+   8 block(s) optimized away
+  56 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "Y3" is loadless and has been removed.
+ Loadless block "U2/$I7" (IBUF) removed.
+  The signal "U2/RG3_D3" is loadless and has been removed.
+   Loadless block "U2/$I8" (IPAD) removed.
+The signal "Y2" is sourceless and has been removed.
+ Sourceless block "U1/C91" (INV) removed.
+  The signal "U1/N69" is sourceless and has been removed.
+ Sourceless block "U1/C291" (INV) removed.
+  The signal "U1/N217" is sourceless and has been removed.
+ Sourceless block "U1/C359" (INV) removed.
+  The signal "U1/N267" is sourceless and has been removed.
+ Sourceless block "U1/C385" (BUF) removed.
+  The signal "U1/N283" is sourceless and has been removed.
+   Sourceless block "U1/C380" (INV) removed.
+    The signal "U1/N282" is sourceless and has been removed.
+ Sourceless block "U1/C406" (INV) removed.
+  The signal "U1/N302" is sourceless and has been removed.
+ Sourceless block "U1/C436" (INV) removed.
+  The signal "U1/N324" is sourceless and has been removed.
+ Sourceless block "U1/C513" (INV) removed.
+  The signal "U1/N385" is sourceless and has been removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "U1/N990" is unused and has been removed.
+ Unused block "U1/C1136" (GND) removed.
+The signal "U1/N991" is unused and has been removed.
+ Unused block "U1/C1137" (GND) removed.
+The signal "U1/N992" is unused and has been removed.
+ Unused block "U1/C1138" (GND) removed.
+The signal "U1/N993" is unused and has been removed.
+ Unused block "U1/C1139" (GND) removed.
+The signal "U1/N994" is unused and has been removed.
+ Unused block "U1/C1140" (GND) removed.
+The signal "U1/N995" is unused and has been removed.
+ Unused block "U1/C1141" (GND) removed.
+The signal "U1/N996" is unused and has been removed.
+ Unused block "U1/C1142" (GND) removed.
+The signal "U1/N997" is unused and has been removed.
+ Unused block "U1/C1143" (GND) removed.
+The signal "U1/N998" is unused and has been removed.
+ Unused block "U1/C1144" (GND) removed.
+The signal "U1/N999" is unused and has been removed.
+ Unused block "U1/C1145" (GND) removed.
+The signal "U1/N1000" is unused and has been removed.
+ Unused block "U1/C1146" (GND) removed.
+The signal "U1/N1001" is unused and has been removed.
+ Unused block "U1/C1147" (GND) removed.
+The signal "U1/N1002" is unused and has been removed.
+ Unused block "U1/C1148" (GND) removed.
+The signal "U1/N1003" is unused and has been removed.
+ Unused block "U1/C1149" (GND) removed.
+The signal "U1/N1004" is unused and has been removed.
+ Unused block "U1/C1150" (GND) removed.
+The signal "U1/N1005" is unused and has been removed.
+ Unused block "U1/C1151" (GND) removed.
+The signal "U1/N1006" is unused and has been removed.
+ Unused block "U1/C1152" (GND) removed.
+The signal "U1/N1007" is unused and has been removed.
+ Unused block "U1/C1153" (GND) removed.
+The signal "U1/N1008" is unused and has been removed.
+ Unused block "U1/C1154" (GND) removed.
+The signal "U1/N1009" is unused and has been removed.
+ Unused block "U1/C1155" (GND) removed.
+The signal "U1/N1010" is unused and has been removed.
+ Unused block "U1/C1156" (GND) removed.
+The signal "U1/N1011" is unused and has been removed.
+ Unused block "U1/C1157" (GND) removed.
+The signal "U1/N1012" is unused and has been removed.
+ Unused block "U1/C1158" (GND) removed.
+The signal "U1/N1013" is unused and has been removed.
+ Unused block "U1/C1159" (GND) removed.
+The signal "U1/N1014" is unused and has been removed.
+ Unused block "U1/C1160" (GND) removed.
+The signal "U1/N1015" is unused and has been removed.
+ Unused block "U1/C1161" (GND) removed.
+The signal "U1/N1016" is unused and has been removed.
+ Unused block "U1/C1162" (GND) removed.
+The signal "U1/N1017" is unused and has been removed.
+ Unused block "U1/C1163" (GND) removed.
+The signal "U1/N1018" is unused and has been removed.
+ Unused block "U1/C1164" (GND) removed.
+The signal "U1/N1019" is unused and has been removed.
+ Unused block "U1/C1165" (GND) removed.
+The signal "U1/N1020" is unused and has been removed.
+ Unused block "U1/C1166" (GND) removed.
+The signal "U1/N1021" is unused and has been removed.
+ Unused block "U1/C1167" (GND) removed.
+The signal "U1/N1022" is unused and has been removed.
+ Unused block "U1/C1168" (GND) removed.
+The signal "U1/N1023" is unused and has been removed.
+ Unused block "U1/C1169" (GND) removed.
+The signal "U1/N1024" is unused and has been removed.
+ Unused block "U1/C1170" (GND) removed.
+The signal "U1/N1025" is unused and has been removed.
+ Unused block "U1/C1171" (GND) removed.
+The signal "U1/N1026" is unused and has been removed.
+ Unused block "U1/C1172" (GND) removed.
+The signal "U1/N1027" is unused and has been removed.
+ Unused block "U1/C1173" (GND) removed.
+The signal "U1/N1028" is unused and has been removed.
+ Unused block "U1/C1174" (GND) removed.
+The signal "U1/N1029" is unused and has been removed.
+ Unused block "U1/C1175" (GND) removed.
+The signal "U1/N1030" is unused and has been removed.
+ Unused block "U1/C1176" (GND) removed.
+The signal "U1/N1031" is unused and has been removed.
+ Unused block "U1/C1177" (GND) removed.
+The signal "U1/N1032" is unused and has been removed.
+ Unused block "U1/C1178" (GND) removed.
+The signal "U1/N1033" is unused and has been removed.
+ Unused block "U1/C1179" (GND) removed.
+The signal "U1/N1034" is unused and has been removed.
+ Unused block "U1/C1180" (GND) removed.
+Unused block "U2/RG3_D3_PULLUP" (PULLUP) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+VCC 		H4/T0_GOI1/$1I40
+GND 		H4/T0_GOI1/$1I43
+VCC 		H4/T0_GOI2/$1I40
+GND 		H4/T0_GOI2/$1I43
+VCC 		H4/T1_GOI1/$1I40
+GND 		H4/T1_GOI1/$1I43
+VCC 		H4/T1_GOI2/$1I40
+GND 		H4/T1_GOI2/$1I43
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - Added Logic
+-----------------------
+
+Section 7 - Expanded Logic
+--------------------------
+To enable this section, set the detailed map report option and rerun map.
+
+Section 8 - Signal Cross-Reference
+----------------------------------
+To enable this section, set the detailed map report option and rerun map.
+
+Section 9 - Symbol Cross-Reference
+----------------------------------
+To enable this section, set the detailed map report option and rerun map.
+
+Section 10 - IOB Properties
+---------------------------
+"H1/RG1_D0" (IOB) : PULLUP
+"H1/RG1_D1" (IOB) : PULLUP
+"H1/RG1_D2" (IOB) : PULLUP
+"H1/RG1_D3" (IOB) : PULLUP
+"H2/RG2_D0" (IOB) : PULLUP
+"H2/RG2_D1" (IOB) : PULLUP
+"H2/RG2_D2" (IOB) : PULLUP
+"H2/RG2_D3" (IOB) : PULLUP
+"H4/GI_GOI" (IOB) : PULLUP
+"H4/NR_1" (IOB) : PULLUP
+"H4/NR_2" (IOB) : PULLUP
+"H4/NZ_1" (IOB) : PULLUP
+"H4/NZ_2" (IOB) : PULLUP
+"H5/$Net00033_" (IOB) : SLEW=SLOW
+"H5/$Net00034_" (IOB) : SLEW=SLOW
+"H5/$Net00035_" (IOB) : SLEW=SLOW
+"H5/$Net00036_" (IOB) : SLEW=SLOW
+"U2/RG3_D0" (IOB) : PULLUP
+"U2/RG3_D1" (IOB) : PULLUP
+"U2/RG3_D2" (IOB) : PULLUP
+
+Section 11 - RPMs
+-----------------
+
+Section 12 - Guide Report
+-------------------------
+Guide not run on this design.

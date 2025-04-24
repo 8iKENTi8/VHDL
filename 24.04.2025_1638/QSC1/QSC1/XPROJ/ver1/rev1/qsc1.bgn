@@ -1,0 +1,71 @@
+Release  - Bitgen E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Loading design for application Bitgen from file qsc1.ncd.
+   "qsc1" is an NCD, version 2.36, device xcs10, package pc84, speed -3
+Loading device for application Bitgen from file '4005e.nph' in environment
+C:/Xilinx/FNDT.
+Opened constraints file qsc1.pcf.
+
+Thu Mar 13 21:41:51 2025
+
+bitgen -w -g ConfigRate:SLOW -g TdoPin:PULLNONE -g DonePin:PULLUP -g CRC:enable -g StartUpClk:CCLK -g SyncToDone:no -g DoneActive:C1 -g OutputsActive:C2 -g GSRInactive:C3 -g ReadClk:CCLK -g ReadCapture:enable -g ReadAbort:disable qsc1.ncd 
+
+Summary of Bitgen Options:
++----------------------+----------------------+
+| Option Name          | Current Setting      |
++----------------------+----------------------+
+| Cclk_Nosync          | (Not Specified)*     |
++----------------------+----------------------+
+| Cclk_Sync            | (Not Specified)*     |
++----------------------+----------------------+
+| Uclk_Nosync          | (Not Specified)*     |
++----------------------+----------------------+
+| Uclk_Sync            | (Not Specified)*     |
++----------------------+----------------------+
+| CRC                  | Enable**             |
++----------------------+----------------------+
+| ConfigRate           | Slow**               |
++----------------------+----------------------+
+| DonePin              | Pullup**             |
++----------------------+----------------------+
+| TdoPin               | Pullnone**           |
++----------------------+----------------------+
+| M0Pin                | Pullnone*            |
++----------------------+----------------------+
+| M1Pin                | Pullnone*            |
++----------------------+----------------------+
+| M2Pin                | Pullnone*            |
++----------------------+----------------------+
+| Input                | TTL*                 |
++----------------------+----------------------+
+| Output               | TTL*                 |
++----------------------+----------------------+
+| ReadCapture          | Enable               |
++----------------------+----------------------+
+| ReadAbort            | Disable**            |
++----------------------+----------------------+
+| ReadClk              | Cclk**               |
++----------------------+----------------------+
+| StartupClk           | Cclk**               |
++----------------------+----------------------+
+| SyncToDone           | No**                 |
++----------------------+----------------------+
+| DoneActive           | C1**                 |
++----------------------+----------------------+
+| OutputsActive        | C2**                 |
++----------------------+----------------------+
+| GSRInactive          | C3**                 |
++----------------------+----------------------+
+| LC_Alignment         | Length*              |
++----------------------+----------------------+
+| Binary               | No*                  |
++----------------------+----------------------+
+ *  Default setting.
+ ** The specified setting matches the default setting.
+
+Running DRC.
+DRC detected 0 errors and 0 warnings.
+Creating bit map...
+Saving bit stream in "qsc1.bit".
+Bitstream generation is complete.

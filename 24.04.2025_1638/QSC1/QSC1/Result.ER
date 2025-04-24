@@ -1,0 +1,6 @@
+Z:/QSC1/QSC1/Result.vhd 226 0:W:#0 Warning: Division with negative numbers is done with shifts    in routine "/"   called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'   called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93) 
+Z:/QSC1/QSC1/Result.vhd 226 0:W:#0 Warning: Division with negative numbers is done with shifts    in routine "/"   called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'   called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93) 
+Z:/QSC1/QSC1/Result.vhd 226 0:W:#0 Warning: Division with negative numbers is done with shifts    in routine "/"   called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'   called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93) 
+Z:/QSC1/QSC1/Result.vhd 226 0:W:#0 Warning: Division with negative numbers is done with shifts    in routine "/"   called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'   called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93) 
+Z:/QSC1/QSC1/Result.vhd 339 0:W:#0 Warning: Output overflows in multiplication    in routine $vhdl_mult_const   called from "*"   called from CustomSummator line 339 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93) 
+

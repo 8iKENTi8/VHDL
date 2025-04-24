@@ -1,0 +1,45 @@
+Release  - ngdbuild E.33
+Copyright (c) 1995-2001 Xilinx, Inc.  All rights reserved.
+
+Command Line: ngdbuild -p xcs10-3-pc84 -uc qsc1.ucf -dd ..
+U:\FLM\QSC1\QSC1\qsc1.EDN qsc1.ngd 
+
+Launcher: "qsc1.ngo" is up to date.
+Reading NGO file "U:/flm/qsc1/qsc1/xproj/ver1/qsc1.ngo" ...
+Reading component libraries for design expansion...
+Launcher: "RESULT.ngo" is up to date.
+Loading design module "U:\flm\qsc1\qsc1\xproj\ver1\RESULT.ngo"...
+
+Annotating constraints to design from file "qsc1.ucf" ...
+Attached a PULLUP primitive to pad net H1/RG1_D1 
+Attached a PULLUP primitive to pad net H1/RG1_D0 
+Attached a PULLUP primitive to pad net H1/RG1_D3 
+Attached a PULLUP primitive to pad net H1/RG1_D2 
+Attached a PULLUP primitive to pad net H2/RG2_D3 
+Attached a PULLUP primitive to pad net H2/RG2_D2 
+Attached a PULLUP primitive to pad net H2/RG2_D1 
+Attached a PULLUP primitive to pad net H2/RG2_D0 
+Attached a PULLUP primitive to pad net H4/NR_2 
+Attached a PULLUP primitive to pad net H4/GI_GOI 
+Attached a PULLUP primitive to pad net H4/NZ_1 
+Attached a PULLUP primitive to pad net H4/NR_1 
+Attached a PULLUP primitive to pad net H4/NZ_2 
+Attached a PULLUP primitive to pad net U2/RG3_D2 
+Attached a PULLUP primitive to pad net U2/RG3_D1 
+Attached a PULLUP primitive to pad net U2/RG3_D0 
+Attached a PULLUP primitive to pad net U2/RG3_D3 
+
+Checking timing specifications ...
+
+Checking expanded design ...
+WARNING:NgdBuild:477 - clock net 'H4/C_FF' has non-clock connections
+WARNING:NgdBuild:452 - logical net 'Y2' has no driver
+WARNING:NgdBuild:454 - logical net 'Y3' has no load
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   3
+
+Writing NGD file "qsc1.ngd" ...
+
+Writing NGDBUILD log file "qsc1.bld"...

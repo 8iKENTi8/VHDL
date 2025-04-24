@@ -1,0 +1,63 @@
+file {
+  .version = 1;
+  entity {
+    .name = "BCD2431";
+    .mra_file = "BCD2431.mra";
+    .arch = {"BCD2431_Arch"};
+    .syn_files = {"BCD2431.syn", "BCD2431__BCD2431_ARCH.syn"};
+   }
+  entity {
+    .name = "Counter01";
+    .mra_file = "Counter01.mra";
+    .arch = {"Counter01_Arch"};
+    .syn_files = {"COUNTER01.syn", "COUNTER01__COUNTER01_ARCH.syn"};
+   }
+  entity {
+    .name = "Result";
+    .mra_file = "Result.mra";
+    .arch = {"Result_Arch"};
+    .syn_files = {"RESULT.syn", "RESULT__RESULT_ARCH.syn"};
+   }
+  entity {
+    .name = "CustomSummator";
+    .mra_file = "CustomSummator.mra";
+    .arch = {"CustomSummator_Arch"};
+    .syn_files = {"CUSTOMSUMMATOR.syn", "CUSTOMSUMMATOR__CUSTOMSUMMATOR_ARCH.syn"};
+   }
+  entity {
+    .name = "Masking";
+    .mra_file = "Masking.mra";
+    .arch = {"Behavioral"};
+    .syn_files = {"MASKING.syn", "MASKING__BEHAVIORAL.syn"};
+   }
+  entity {
+    .name = "OrX_AndZQ4";
+    .mra_file = "OrX_AndZQ4.mra";
+    .arch = {"OrX_AndZQ4_Arch"};
+    .syn_files = {"ORX_ANDZQ4.syn", "ORX_ANDZQ4__ORX_ANDZQ4_ARCH.syn"};
+   }
+  entity {
+    .name = "BitsSummator";
+    .mra_file = "BitsSummator.mra";
+    .arch = {"BitsSummator_Arch"};
+    .syn_files = {"BITSSUMMATOR.syn", "BITSSUMMATOR__BITSSUMMATOR_ARCH.syn"};
+   }
+  entity {
+    .name = "BitVectorMUX";
+    .mra_file = "BitVectorMUX.mra";
+    .arch = {"BitVectorMUX_Arch"};
+    .syn_files = {"BITVECTORMUX.syn", "BITVECTORMUX__BITVECTORMUX_ARCH.syn"};
+   }
+  entity {
+    .name = "CustomRegister";
+    .mra_file = "CustomRegister.mra";
+    .arch = {"CustomRegister_Arch"};
+    .syn_files = {"CUSTOMREGISTER.syn", "CUSTOMREGISTER__CUSTOMREGISTER_ARCH.syn"};
+   }
+  entity {
+    .name = "IntMUX";
+    .mra_file = "IntMUX.mra";
+    .arch = {"IntMUX_Arch"};
+    .syn_files = {"INTMUX.syn", "INTMUX__INTMUX_ARCH.syn"};
+   }
+}

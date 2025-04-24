@@ -1,0 +1,12 @@
+Loading - RESULT
+   Loading library default timing values
+Loading - AND6_MACRO
+   Loading library default timing values
+===============================
+Memory usage statistics:
+    Total number of allocated memory blocks: 44 (0)
+    Total number of memory reallocations: 2
+    Total length of memory used to load the netlist: 0 kB (0)
+    Number of system memory blocks (total/long): 1/0
+Netlist loaded in: 1 seconds
+===============================

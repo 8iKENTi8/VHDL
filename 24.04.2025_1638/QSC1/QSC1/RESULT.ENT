@@ -1,0 +1,10 @@
+BCD2431 BCD2431_Arch
+Masking Behavioral
+OrX_AndZQ4 OrX_AndZQ4_Arch
+BitsSummator BitsSummator_Arch
+BitVectorMUX BitVectorMUX_Arch
+Counter01 Counter01_Arch
+CustomRegister CustomRegister_Arch
+CustomSummator CustomSummator_Arch
+IntMUX IntMUX_Arch
+Result Result_Arch

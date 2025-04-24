@@ -1,0 +1,6 @@
+CONV_ACS, 2.5.5.78, Thu Mar 13 21:37:59 2025
+
+  Macro 'RESULT' not exported. File 'U:\FLM\QSC1\QSC1\RESULT.edf' exists
+  Total number of instances: 78
+  Total number of nets: 103
+EDIF netlist exported to file - U:\FLM\QSC1\QSC1\qsc1.edn

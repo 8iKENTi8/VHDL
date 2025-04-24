@@ -1,0 +1,109 @@
+CM: 
+CM: Checking...
+CM:  Error   L204/C0 : #0 Error: C:/Xilinx/active/projects/qsc1/Result.vhd  line 204   Type mismatch on left and/or right operand of binary operator.  (VSS-523) 
+CM:  Warning   L307/C0 : #0 Warning: Initial values for signals are not supported for synthesis. They are ignored  on line 307  (VHDL-2022) 
+CM:  1 error(s) 1 warning(s) found
+CM: 
+CM: Checking...
+CM:  Error   L204/C0 : #0 Error: C:/Xilinx/active/projects/qsc1/Result.vhd  line 204   Type mismatch on left and/or right operand of binary operator.  (VSS-523) 
+CM:  Warning   L307/C0 : #0 Warning: Initial values for signals are not supported for synthesis. They are ignored  on line 307  (VHDL-2022) 
+CM:  1 error(s) 1 warning(s) found
+CM: 
+CM: Checking...
+CM:  Warning   L307/C0 : #0 Warning: Initial values for signals are not supported for synthesis. They are ignored  on line 307  (VHDL-2022) 
+CM:  0 error(s) 1 warning(s) found
+CM: 
+CM: Checking...
+CM:  Error   L314/C0 : #0 Error: C:/Xilinx/active/projects/qsc1/Result.vhd  line 314   Syntax error.  (VSS-1081) 
+CM:  1 error(s) 0 warning(s) found
+CM: 
+CM: Checking...
+CM:  Error   L314/C0 : #0 Error: C:/Xilinx/active/projects/qsc1/Result.vhd  line 314   Syntax error.  (VSS-1081) 
+CM:  1 error(s) 0 warning(s) found
+CM: 
+CM: Checking...
+CM: Check Successful
+CM: 
+CM: Synthesizing...
+CM:  Warning   L204/C0 : #0 Warning: Division with negative numbers is done with shifts    in routine "/"   called from ToBitVector line 204 in file 'C:/Xilinx/active/projects/qsc1/Result.vhd'   called from CustomRegister line 261 in file 'C:/Xilinx/active/projects/qsc1/Result.vhd'  (HDL-93) 
+CM:  Warning   L330/C0 : #0 Warning: Output overflows in multiplication    in routine $vhdl_mult_const   called from "*"   called from CustomSummator line 330 in file 'C:/Xilinx/active/projects/qsc1/Result.vhd'  (HDL-93) 
+CM:  0 error(s) 5 warning(s) found
+CM: Synthesis succesful (Warnings found)
+CM: Use Synthesis/View Report for detailed synthesis report
+CM: 
+CM: Netlist is up-to-date
+CM: Symbol 'RESULT' successfully created
+CM: 
+CM: Checking...
+CM: Check Successful
+CM: 
+CM: Synthesizing...
+CM:  Warning   L205/C0 : #0 Warning: Division with negative numbers is done with shifts    in routine "/"   called from ToBitVector line 205 in file 'U:/FLM/QSC1/QSC1/Result.vhd'   called from CustomRegister line 262 in file 'U:/FLM/QSC1/QSC1/Result.vhd'  (HDL-93) 
+CM:  Warning   L331/C0 : #0 Warning: Output overflows in multiplication    in routine $vhdl_mult_const   called from "*"   called from CustomSummator line 331 in file 'U:/FLM/QSC1/QSC1/Result.vhd'  (HDL-93) 
+CM:  0 error(s) 5 warning(s) found
+CM: Synthesis succesful (Warnings found)
+CM: Use Synthesis/View Report for detailed synthesis report
+CM: 
+CM: Netlist is up-to-date
+CM: Symbol 'RESULT' successfully updated
+CM: 
+CM: Netlist is up-to-date
+CM: Symbol 'RESULT' successfully updated
+CM: 
+CM:  Warning   L205/C0 : #0 Warning: Division with negative numbers is done with shifts    in routine "/"   called from ToBitVector line 205 in file 'U:/FLM/QSC1/QSC1/Result.vhd'   called from CustomRegister line 262 in file 'U:/FLM/QSC1/QSC1/Result.vhd'  (HDL-93) 
+CM:  Warning   L331/C0 : #0 Warning: Output overflows in multiplication    in routine $vhdl_mult_const   called from "*"   called from CustomSummator line 331 in file 'U:/FLM/QSC1/QSC1/Result.vhd'  (HDL-93) 
+CM:  0 error(s) 5 warning(s) found
+CM: Synthesis successful (Warnings found)
+CM: Use Synthesis/View Report for detailed synthesis report
+CM: 
+CM: Checking...
+CM: Check Successful
+CM: 
+CM: Synthesizing...
+CM:  Warning   L226/C0 : #0 Warning: Division with negative numbers is done with shifts    in routine "/"   called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'   called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93) 
+CM:  Warning   L339/C0 : #0 Warning: Output overflows in multiplication    in routine $vhdl_mult_const   called from "*"   called from CustomSummator line 339 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93) 
+CM:  0 error(s) 5 warning(s) found
+CM: Synthesis succesful (Warnings found)
+CM: Use Synthesis/View Report for detailed synthesis report
+CM: 
+CM: Netlist is up-to-date
+CM: Symbol 'RESULT' successfully created
+CM: 
+CM: Checking...
+CM: Check Successful
+CM: 
+CM: Synthesizing...
+CM:  Warning   L226/C0 : #0 Warning: Division with negative numbers is done with shifts    in routine "/"   called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'   called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93) 
+CM:  Warning   L339/C0 : #0 Warning: Output overflows in multiplication    in routine $vhdl_mult_const   called from "*"   called from CustomSummator line 339 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93) 
+CM:  0 error(s) 5 warning(s) found
+CM: Synthesis succesful (Warnings found)
+CM: Use Synthesis/View Report for detailed synthesis report
+CM: 
+CM: Netlist is up-to-date
+CM: Symbol 'RESULT' successfully created
+CM: 
+CM: Checking...
+CM: Check Successful
+CM: 
+CM: Synthesizing...
+CM:  Warning   L226/C0 : #0 Warning: Division with negative numbers is done with shifts    in routine "/"   called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'   called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93) 
+CM:  Warning   L339/C0 : #0 Warning: Output overflows in multiplication    in routine $vhdl_mult_const   called from "*"   called from CustomSummator line 339 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93) 
+CM:  0 error(s) 5 warning(s) found
+CM: Synthesis succesful (Warnings found)
+CM: Use Synthesis/View Report for detailed synthesis report
+CM: 
+CM: Netlist is up-to-date
+CM: Symbol 'RESULT' successfully created
+CM: 
+CM: Checking...
+CM: Check Successful
+CM: 
+CM: Synthesizing...
+CM:  Warning   L226/C0 : #0 Warning: Division with negative numbers is done with shifts    in routine "/"   called from ToBitVector line 226 in file 'Z:/QSC1/QSC1/Result.vhd'   called from CustomRegister line 283 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93) 
+CM:  Warning   L339/C0 : #0 Warning: Output overflows in multiplication    in routine $vhdl_mult_const   called from "*"   called from CustomSummator line 339 in file 'Z:/QSC1/QSC1/Result.vhd'  (HDL-93) 
+CM:  0 error(s) 5 warning(s) found
+CM: Synthesis succesful (Warnings found)
+CM: Use Synthesis/View Report for detailed synthesis report
+CM: 
+CM: Netlist is up-to-date
+CM: Symbol 'RESULT' successfully created

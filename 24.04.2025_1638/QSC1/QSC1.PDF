@@ -1,0 +1,215 @@
+[project]
+name=qsc1
+netlist=qsc1
+contents=qsc1
+date=03/09/25
+time=11:43:45
+version=3.1.6.00.18c
+generics=MAX
+Type=F21i
+FndType=F4.1i
+FndTypeE=F4.1i
+top_level=schematic
+library_net=ON
+sim_mode=FUNC
+lib_order=1008 133 167
+[libraries]
+1008= 
+133=c:\xilinx\active\syslib\simprims
+167=c:\xilinx\active\syslib\spartan
+[xilinx]
+libraries=unified
+family=2
+xact9=On
+xfam=Spartan
+[device]
+xilinx=S10PC84-3
+part=S10PC84-3
+[ext_sheets]
+Result.vhd= 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[OpenDoc]
+hde/QSC11/U1=0,0,225,225,1665,985,Result.vhd
+hde/Result=0,0,3,3,641,451,Result.vhd
+[Log]
+imp_EDIF.log=Import EDIF netlist
+netlist.log=Simulator Netlist Log
+exp_EDIF.log=Export netlist to EDIF 200
+[netlist]
+external=FALSE
+[Schematic]
+Table01=Project
+Table02=Macro
+Table03=Date
+Table04=Date Last Modified
+[sheets]
+qsc11=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[timings]
+qsc1=
+w=
+mo1=
+mo2=
+mo3=
+mo4=
+mo5=
+mo6=
+mo7=
+mo8=
+[OPEN32]
+nMaxFile=255
+lpstrFile=
+lpstrFilter=Schematic (*.SCH)|*.sch|All Files (*.*)|*.*||
+lpstrInitialDir=C:\XILINX\ACTIVE\PROJECTS\QSC1\
+lpstrTitle=Select Schematic Sheet
+nFilterIndex=1
+Flags=6148
+cmdLine=-h 688 -hp 340 -m PCM_OPEN_32_MESSAGE -f C:\XILINX\ACTIVE\PROJECTS\current.pdf
+[sim_config]
+Lower Bound=2048
+Upper Bound=2048
+B0 Period=50
+Transport Delay=On
+Enable Global Netlist Analysis=On
+Forced State=Default
+Output Waveform=Overwrite
+Global Reset=On
+Keep Comments=Off
+Execute Preset=Off
+Models Stabilization=On
+Pulse Global Reset Net Enabled=On
+Pulse Global Reset Net=1000
+
+
+
+
+
+
+
+
+
+
+
+[implement_XIE]
+version=ver1
+revision=rev1
+[implement_HDL]
+family=2
+xfam=Spartan
+part=S10PC84-3
+xilinx=S10PC84-3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[APP_95]
+lid=0
+oid=0
+source=Z:\QSC1\QSC1\QSC11.SCH
+[sc_desk]
+desk00=Z:\QSC1\QSC1\QSC11.SCH, 0, 0, 1425, 828, 1
+[FILE7]
+RESULT=Result.vhd
+scan_time=1745484036

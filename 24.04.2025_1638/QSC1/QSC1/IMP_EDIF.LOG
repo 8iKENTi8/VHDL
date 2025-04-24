@@ -1,0 +1,12 @@
+CONV_ACS, 2.5.5.78, Wed Apr 23 10:55:31 2025
+
+Import EDIF netlist 'Z:\QSC1\QSC1\Result.edf'
+Symbol 'Result', port 'Q<3>' has been renamed to 'Q3'
+Symbol 'Result', port 'Q<2>' has been renamed to 'Q2'
+Symbol 'Result', port 'Q<1>' has been renamed to 'Q1'
+Symbol 'Result', port 'Q<0>' has been renamed to 'Q0'
+Symbol 'Result', port 'Q<3>' has been renamed to 'Q3'
+Symbol 'Result', port 'Q<2>' has been renamed to 'Q2'
+Symbol 'Result', port 'Q<1>' has been renamed to 'Q1'
+Symbol 'Result', port 'Q<0>' has been renamed to 'Q0'
+Import EDIF netlist finished successfully

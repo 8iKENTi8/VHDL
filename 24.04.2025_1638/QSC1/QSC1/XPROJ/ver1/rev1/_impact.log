@@ -1,0 +1,23 @@
+iMPACT log file Started on 2025/03/13 21:41:57
+'1': Loading file 'qsc1.bit' ...done.
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+'1': Loading file 'U:\FLM\QSC1\QSC1\XPROJ\ver1\rev1\qsc1.bit' ...done.
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+AutoDetecting cable. Please wait.
+CB_PROGRESS_START - Starting Operation.
+Connecting to cable (USB Port).
+Cable connection failed.
+Connecting to cable (Parallel Port - LPT1).
+Cable connection established.
+Elapsed time =      0 sec.
+PROGRESS_START - Starting Operation.
+PROGRESS_END - End Operation.
+Elapsed time =      2 sec.
+Programming completed successfully.
+*****   Closing iMPACT program.   *****
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
